@@ -1,0 +1,19 @@
+{
+  "name": "landinpage",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "@midudev/tailwind-animations": "^0.0.7",
+    "astro": "^4.13.3",
+    "flowbite": "^2.5.1",
+    "tailwindcss": "^3.4.10"
+  }
+}
