@@ -10,10 +10,10 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<link rel="icon" href="img/logo.ico" type="image/x-icon">
 		<meta name="theme-color" content="#b04ac4">
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<script>
@@ -24,6 +24,7 @@ const { title } = Astro.props;
 				document.documentElement.classList.remove('dark')
 			}
 		</script>
+		<script src="https://kit.fontawesome.com/b3d400da34.js" crossorigin="anonymous"></script>
 	</head>
 	<body class="antialiased">
 		<div class="min-h-screen bg-white dark:bg-dark-800">
