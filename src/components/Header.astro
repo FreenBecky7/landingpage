@@ -32,18 +32,26 @@
                 </button>
             </div>
         </div>
-        <div class="lg:hidden" id="mobile-menu">
-            <ul class="flex flex-col space-y-2 mt-4">
-                <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Home</a></li>
-                <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Company</a></li>
-                <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Marketplace</a></li>
-                <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Features</a></li>
-                <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Team</a></li>
-                <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Contact</a></li>
-            </ul>
-        </div>
+       <!-- Menú móvil -->
+<div class="lg:hidden hidden" id="mobile-menu">
+    <ul class="flex flex-col space-y-2 mt-4">
+        <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Home</a></li>
+        <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Company</a></li>
+        <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Marketplace</a></li>
+        <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Features</a></li>
+        <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Team</a></li>
+        <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Contact</a></li>
+    </ul>
+</div>
+
+<!-- Menú de escritorio -->
+<div class="hidden lg:flex">
+    <!-- Aquí va tu menú de escritorio -->
+</div>
     </nav>
+    
 </header>
+
 
 <script>
     var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -79,4 +87,12 @@
             }
         }
     });
+    document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+});
 </script>
