@@ -5,9 +5,10 @@ export const works = [
       name: "Library Assistant",
       description:
         "Sistema para el Control de Asistencia de la Biblioteca dentro de la UTZAC.",
-      url: "",
+      url: "http://library.com/",
       author: "Nelyda Yeray Mc",
       year: 2024,
+      
     },
     {
         id: "library-assistant",
