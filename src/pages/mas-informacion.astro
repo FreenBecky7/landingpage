@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Más Información</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Estilos básicos */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            background-color: #f7f7f7;
+        }
+        
+        .hero-section {
+            padding: 80px 20px 40px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-section p {
+            font-size: 1.125rem;
+            color: #555;
+        }
+        
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            margin-top: auto;
+            width: 100%;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-text {
+            margin-bottom: 10px;
+            font-size: 0.875rem;
+        }
+        
+        .footer-nav {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-link {
+            color: #333;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: #007bff;
+        }
+
+        /* Estilo del botón Volver al Inicio */
+        .back-button {
+            background-color: #6c63ff; /* Color morado pastel */
+            color: #ffffff; /* Texto en blanco */
+            font-size: 1.1rem; /* Tamaño del texto */
+            font-weight: bold; /* Texto en negrita */
+            padding: 12px 24px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 30px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+            transition: transform 0.3s ease, background-color 0.3s ease; /* Efecto suave al hacer hover */
+            text-align: center;
+            text-decoration: none; /* Sin subrayado */
+            display: inline-block;
+            margin-top: 30px; /* Margen superior */
+        }
+
+        .back-button:hover {
+            background-color: #5753e8; /* Color morado más oscuro al hacer hover */
+            transform: translateY(-3px); /* Elevar el botón ligeramente al hacer hover */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+
+<!-- Navbar -->
+<header>
+    <nav class="bg-white fixed z-50 w-full shadow-2xl border-gray-200 px-6 py-3 dark:bg-gray-800">
+        <div class="flex justify-between items-center mx-auto max-w-screen-xl">
+            <a href="/" class="flex items-center">
+                <img src="img/logo.png" class="w-10 h-10" alt="Logo" />
+                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white ml-2 md:block hidden">
+                    APRASRA<span class="text-primary-600">NET</span>
+                </span>
+            </a>
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="#" class="text-gray-700 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">Inicio</a>
+                <a href="#" class="text-gray-700 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">Acerca de</a>
+                <a href="#" class="text-gray-700 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">Servicios</a>
+                <a href="#" class="text-gray-700 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">Portafolio</a>
+                <a href="#" class="text-gray-700 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">Habilidades</a>
+                <a href="#" class="text-gray-700 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">Contacto</a>
+            </div>
+            <div class="flex items-center space-x-4 lg:order-2">
+                <button id="theme-toggle" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 p-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-300 dark:focus:ring-primary-600 transition duration-300">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+                <a href="#" class="text-white bg-primary-600 hover:bg-primary-700 rounded-lg text-sm px-4 py-2 transition duration-300">Obtener cotización</a>
+                <button id="menu-toggle" class="lg:hidden p-2.5 text-gray-500 dark:text-gray-400 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-300 dark:focus:ring-primary-600">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1zM4 9h12a1 1 0 010 2H4a1 1 0 010-2zm0 4h12a1 1 0 010 2H4a1 1 0 010-2z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="hero-section">
+    <h1 class="text-3xl md:text-4xl font-extrabold dark:text-white">Más Información</h1>
+    <div class="content">
+        <p class="text-lg md:text-xl leading-8 text-gray-700 dark:text-gray-300">
+            Aquí encontrarás más detalles sobre nuestros servicios y cómo podemos ayudarte a alcanzar tus objetivos. Nos especializamos en soluciones a medida que se adaptan a tus necesidades.
+        </p>
+        <img src="img/info-image.jpg" alt="Información adicional">
+        <a href="/" class="back-button">Volver al Inicio</a>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-text">© 2024 APRASRANET. Todos los derechos reservados.</div>
+        <div class="footer-nav">
+            <a href="#" class="footer-link">Inicio</a>
+            <a href="#" class="footer-link">Privacidad</a>
+            <a href="#" class="footer-link">Términos</a>
+            <a href="#" class="footer-link">Contacto</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Script para alternar temas
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    
+    // Comprobar el tema actual al cargar la página
+    if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+        darkIcon.classList.remove('hidden');
+    } else {
+        lightIcon.classList.remove('hidden');
+    }
+
+    // Alternar entre temas al hacer clic en el botón
+    themeToggleBtn.addEventListener('click', function () {
+        document.documentElement.classList.toggle('dark');
+        darkIcon.classList.toggle('hidden');
+        lightIcon.classList.toggle('hidden');
+
+        // Guardar la preferencia del usuario
+        if (document.documentElement.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+</script>
+</body>
+</html>
