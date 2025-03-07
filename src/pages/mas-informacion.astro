@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Más Información</title>
+    <title>APRASRANET</title>
+    <link rel="icon" type="image/png" href="/img/loge.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
@@ -12,71 +13,71 @@
         }
     </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-50">
 
 <header>
     <nav class="fixed top-0 w-full bg-white bg-opacity-90 shadow-md px-6 py-4 transition-all duration-300" id="navbar">
         <div class="flex justify-between items-center max-w-screen-xl mx-auto">
             <a href="/" class="flex items-center">
-                <img src="/img/loge.png" class="w-10 h-10" alt="Logo" />
-                <span class="ml-2 text-xl font-semibold text-gray-900 hidden md:block">
-                    APRASRA<span class="text-[#8a38a1]">NET</span>
+                <img src="/img/loge.png" class="w-8 h-8" alt="Logo" /> <!-- Tamaño reducido -->
+                <span class="ml-2 text-xl font-bold text-gray-900 hidden md:block"> <!-- Tamaño de texto reducido -->
+                    APRASRA<span class="text-primary-600">NET</span>
                 </span>
             </a>
+            
             <div class="hidden lg:flex items-center space-x-6">
-                <a href="/" class="text-gray-700 hover:text-[#8a38a1] transition">Inicio</a>
-                <a href="#" class="text-gray-700 hover:text-[#8a38a1] transition">Acerca de</a>
-                <a href="#" class="text-gray-700 hover:text-[#8a38a1] transition">Servicios</a>
-                <a href="#" class="text-gray-700 hover:text-[#8a38a1] transition">Portafolio</a>
-                <a href="#" class="text-gray-700 hover:text-[#8a38a1] transition">Habilidades</a>
-                <a href="#" class="text-gray-700 hover:text-[#8a38a1] transition">Contacto</a>
+                <a href="/" class="text-gray-700 hover:text-[#8a38a1] transition font-medium">Inicio</a>
+                <a href="#" class="text-gray-700 hover:text-[#8a38a1] transition font-medium">Acerca de</a>
+                <a href="#" class="text-gray-700 hover:text-[#8a38a1] transition font-medium">Servicios</a>
+                <a href="#" class="text-gray-700 hover:text-[#8a38a1] transition font-medium">Portafolio</a>
+                <a href="#" class="text-gray-700 hover:text-[#8a38a1] transition font-medium">Habilidades</a>
+                <a href="#" class="text-gray-700 hover:text-[#8a38a1] transition font-medium">Contacto</a>
             </div>
         </div>
     </nav>
 </header>
 
 <main class="pt-24">
-    <section class="text-center bg-gradient-to-r from-[#8a38a1] to-[#8a38a1] text-white py-20 rounded-b-3xl">
-        <h1 class="text-5xl font-bold animate-fade-in">Nuestros Servicios</h1>
-        <p class="text-lg mt-2 animate-fade-in delay-200">Soluciones digitales innovadoras para hacer crecer tu negocio</p>
+    <section class="text-center bg-gradient-to-r from-[#8a38a1] to-[#722c85] text-white py-24 rounded-b-3xl shadow-lg">
+        <h1 class="text-5xl font-extrabold animate-fade-in">Nuestros Servicios</h1>
+        <p class="text-lg mt-4 animate-fade-in delay-200">Soluciones digitales innovadoras para hacer crecer tu negocio</p>
     </section>
-    <div class="max-w-5xl mx-auto bg-white shadow-lg rounded-lg p-10 mt-[-50px] relative">
-        <h2 class="text-3xl font-semibold text-center text-gray-800 mb-6">¿Qué ofrecemos?</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Desarrollo Web -->
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-2 text-center">
-                <img src="/img/DWeb.webp" alt="Desarrollo Web" class="w-full rounded-lg">
-                <h3 class="text-xl font-semibold mt-4 text-gray-800">Desarrollo Web</h3>
-                <p class="mt-2 text-gray-600">Diseñamos sitios web moderñnos, funcionales y optimizados para SEO.</p>
+    <div class="max-w-6xl mx-auto bg-white shadow-2xl rounded-3xl p-12 mt-[-50px] relative border border-gray-200">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">¿Qué ofrecemos?</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Tarjetas de servicios -->
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 text-center hover:scale-105">
+                <img src="/img/DWeb.webp" alt="Desarrollo Web" class="w-full rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold mt-4 text-gray-800">Desarrollo Web</h3>
+                <p class="mt-2 text-gray-600">Diseñamos sitios web modernos, funcionales y optimizados para SEO.</p>
             </div>
-            <!-- Aplicaciones Móviles -->
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-2 text-center">
-                <img src="/img/app.webp" alt="Aplicaciones Móviles" class="w-full rounded-lg">
-                <h3 class="text-xl font-semibold mt-4 text-gray-800">Aplicaciones Móviles</h3>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 text-center hover:scale-105">
+                <img src="/img/app.webp" alt="Aplicaciones Móviles" class="w-full rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold mt-4 text-gray-800">Aplicaciones Móviles</h3>
                 <p class="mt-2 text-gray-600">Desarrollamos apps para Android e iOS con la mejor experiencia de usuario.</p>
             </div>
-            <!-- Diseño UI/UX -->
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-2 text-center">
-                <img src="https://agenciamasco.com/wp-content/uploads/2020/02/que-es-ux-ui-design.jpg" alt="Diseño UI/UX" class="w-full rounded-lg">
-                <h3 class="text-xl font-semibold mt-4 text-gray-800">Diseño UI/UX</h3>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 text-center hover:scale-105">
+                <img src="/img/ux.webp" alt="Diseño UI/UX" class="w-full rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold mt-4 text-gray-800">Diseño UI/UX</h3>
                 <p class="mt-2 text-gray-600">Creamos experiencias visuales atractivas e intuitivas para tus usuarios.</p>
             </div>
-            <!-- Desarrollo de Juegos en Godot -->
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-2 text-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="Desarrollo de Juegos" class="w-full rounded-lg">
-                <h3 class="text-xl font-semibold mt-4 text-gray-800">Desarrollo de Juegos en Godot</h3>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 text-center hover:scale-105">
+                <img src="/img/gdt.webp" alt="Desarrollo de Juegos" class="w-full rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold mt-4 text-gray-800">Desarrollo de Juegos en Godot</h3>
                 <p class="mt-2 text-gray-600">Creamos juegos simples con el motor Godot, ideales para entretenimiento y educación.</p>
             </div>
         </div>
-        <img src="img/tech-team.jpg" alt="Nuestro Equipo" class="mt-8 rounded-lg shadow-lg w-full">
-        <a href="/contacto" class="mt-6 inline-block bg-[#8a38a1] text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-[#722c85] transition transform hover:-translate-y-1">
-            Contáctanos
-        </a>
+        <img src="/img/tech-team.jpg" alt="Nuestro Equipo" class="mt-10 rounded-xl shadow-xl w-full">
+        <div class="text-center mt-8">
+            <a href="/contacto" class="bg-[#8a38a1] text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-[#722c85] hover:scale-105 transition-all transform hover:-translate-y-1 shadow-lg">
+                Contáctanos
+            </a>
+        </div>
     </div>
 </main>
 
-<footer class="mt-10 py-4 bg-gray-900 text-center text-white">
-    <p>© 2025 APRASRANET. Todos los derechos reservados.</p>
+<footer class="mt-10 py-6 bg-gray-900 text-center text-white">
+    <p class="text-lg">© 2025 APRASRANET. Todos los derechos reservados.</p>
 </footer>
 
 <script>
