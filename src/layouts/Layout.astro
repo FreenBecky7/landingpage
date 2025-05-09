@@ -7,30 +7,78 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="icon" href="img/logo.ico" type="image/x-icon">
-		<meta name="theme-color" content="#b04ac4">
+		<link rel="icon" href="img/logo.ico" type="image/x-icon" />
+		<meta name="theme-color" content="#b04ac4" />
 		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<!-- Tema: evitar FOUC -->
 		<script>
-			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-			if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+			if (
+				localStorage.getItem('color-theme') === 'dark' ||
+				(!('color-theme' in localStorage) &&
+					window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
 				document.documentElement.classList.add('dark');
 			} else {
-				document.documentElement.classList.remove('dark')
+				document.documentElement.classList.remove('dark');
 			}
 		</script>
+
+		<!-- FontAwesome -->
 		<script src="https://kit.fontawesome.com/b3d400da34.js" crossorigin="anonymous"></script>
 	</head>
-	<body class="antialiased">
-		<div class="min-h-screen bg-white dark:bg-dark-800">
-			<slot />
-		</div>
-		
+	<body class="antialiased bg-white dark:bg-dark-800 text-gray-800 dark:text-gray-100">
+		<!-- Tu contenido principal se inyecta aquí -->
+		<slot />
+
+		<!-- Flowbite -->
 		<script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+
+		<!-- Script de tema oscuro y menú móvil -->
+		<script>
+			const darkIcon = document.getElementById('theme-toggle-dark-icon');
+			const lightIcon = document.getElementById('theme-toggle-light-icon');
+			const themeToggle = document.getElementById('theme-toggle');
+			const mobileMenu = document.getElementById('mobile-menu');
+			const menuToggle = document.getElementById('menu-toggle');
+
+			// Mostrar icono inicial
+			if (
+				localStorage.getItem('color-theme') === 'dark' ||
+				(!localStorage.getItem('color-theme') &&
+					window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+				document.documentElement.classList.add('dark');
+				lightIcon?.classList.remove('hidden');
+			} else {
+				document.documentElement.classList.remove('dark');
+				darkIcon?.classList.remove('hidden');
+			}
+
+			// Toggle del tema
+			themeToggle?.addEventListener('click', () => {
+				darkIcon?.classList.toggle('hidden');
+				lightIcon?.classList.toggle('hidden');
+
+				if (document.documentElement.classList.contains('dark')) {
+					document.documentElement.classList.remove('dark');
+					localStorage.setItem('color-theme', 'light');
+				} else {
+					document.documentElement.classList.add('dark');
+					localStorage.setItem('color-theme', 'dark');
+				}
+			});
+
+			// Toggle del menú móvil
+			menuToggle?.addEventListener('click', () => {
+				mobileMenu?.classList.toggle('hidden');
+			});
+		</script>
 	</body>
 </html>

@@ -1,77 +1,75 @@
 <header>
-    <nav class="bg-white fixed z-50 w-full shadow-2xl border-gray-200 px-6 py-4 dark:bg-gray-800">
-      <div class="flex justify-between items-center mx-auto max-w-screen-xl">
-        <!-- LOGO GRANDE Y TEXTO MÁS JUNTOS -->
-        <a href="/" class="flex items-center space-x-2">
-          <img src="img/logito.png" class="w-24 h-24 object-contain" alt="Logo Kimstrong" />
-          <span class="text-2xl font-bold text-[#1A237E] dark:text-[#F8BBD0] hidden md:block">Kimstrong</span>
-        </a>
-  
-        <!-- MENÚ EN PANTALLAS GRANDES -->
-        <div class="hidden lg:flex items-center space-x-6">
-          <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors duration-300">Inicio</a>
-          <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors duration-300">Acerca de</a>
-          <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors duration-300">Servicios</a>
-          <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors duration-300">Portafolio</a>
-          <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors duration-300">Habilidades</a>
-          <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors duration-300">Contacto</a>
-        </div>
-  
-        <!-- BOTONES DERECHA -->
-        <div class="flex items-center space-x-4 lg:order-2">
-          <!-- BOTÓN TEMA -->
-          <button id="theme-toggle" class="text-gray-500 dark:text-gray-400 hover:bg-[#1A237E] dark:hover:bg-[#BB86FC] p-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A237E] transition duration-300">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-            </svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm..."></path>
-            </svg>
-          </button>
-  
-          <!-- BOTÓN COTIZACIÓN -->
-          <a href="#" class="text-white bg-[#1A237E] hover:bg-[#3949AB] rounded-lg text-sm px-4 py-2 transition duration-300 sm:text-xs sm:px-3 sm:py-1">
-            Obtener cotización
-          </a>
-  
-          <!-- BOTÓN MENÚ MÓVIL -->
-          <button id="menu-toggle" class="lg:hidden p-2.5 text-gray-500 dark:text-gray-400 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-[#1A237E]">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12..."></path>
-            </svg>
-          </button>
-        </div>
+  <nav class="bg-white dark:bg-gray-800 fixed top-0 left-0 right-0 z-50 shadow-md">
+    <div class="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-2">
+        <img src="/img/logito.png" class="w-12 h-12 object-contain sm:w-20 sm:h-20" alt="Logo Kimstrong" />
+        <span class="text-xl sm:text-2xl font-bold text-[#1A237E] dark:text-[#F8BBD0]">Kimstrong</span>
+      </a>
+
+      <!-- Botón móvil -->
+      <div class="lg:hidden">
+        <button id="menu-toggle" class="text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1A237E] p-2 rounded-md">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
-  
-      <!-- MENÚ MÓVIL -->
-      <div class="lg:hidden hidden" id="mobile-menu">
-        <ul class="flex flex-col space-y-2 mt-4">
-          <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Inicio</a></li>
-          <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Acerca de</a></li>
-          <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Servicios</a></li>
-          <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Portafolio</a></li>
-          <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Habilidades</a></li>
-          <li><a href="#" class="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Contacto</a></li>
-        </ul>
+
+      <!-- Botones de acción -->
+      <div class="hidden lg:flex items-center space-x-4">
+        <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors">Inicio</a>
+        <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors">Acerca de</a>
+        <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors">Servicios</a>
+        <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors">Portafolio</a>
+        <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors">Habilidades</a>
+        <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors">Contacto</a>
+        <a href="#" class="text-white bg-[#1A237E] hover:bg-[#3949AB] px-4 py-2 rounded-md text-sm font-medium transition">Obtener cotización</a>
+        <button id="theme-toggle" class="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1z" />
+          </svg>
+        </button>
       </div>
-    </nav>
-  </header>
-  
-  <!-- SCRIPT DEL TOGGLE DE TEMA Y MENÚ -->
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="lg:hidden hidden px-4 pb-4 space-y-2">
+      <a href="#" class="block text-gray-700 dark:text-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Inicio</a>
+      <a href="#" class="block text-gray-700 dark:text-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Acerca de</a>
+      <a href="#" class="block text-gray-700 dark:text-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Servicios</a>
+      <a href="#" class="block text-gray-700 dark:text-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Portafolio</a>
+      <a href="#" class="block text-gray-700 dark:text-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Habilidades</a>
+      <a href="#" class="block text-gray-700 dark:text-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Contacto</a>
+      <a href="#" class="block text-white bg-[#1A237E] hover:bg-[#3949AB] py-2 px-4 rounded-md text-center">Obtener cotización</a>
+    </div>
+  </nav>
+
+  <!-- SCRIPT: Toggle tema y menú -->
   <script>
-    var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-    var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-  
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (
+      localStorage.getItem('color-theme') === 'dark' ||
+      (!('color-theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
       themeToggleLightIcon.classList.remove('hidden');
     } else {
+      document.documentElement.classList.remove('dark');
       themeToggleDarkIcon.classList.remove('hidden');
     }
-  
-    document.getElementById('theme-toggle').addEventListener('click', function () {
+
+    document.getElementById('theme-toggle').addEventListener('click', () => {
       themeToggleDarkIcon.classList.toggle('hidden');
       themeToggleLightIcon.classList.toggle('hidden');
-  
+
       if (localStorage.getItem('color-theme')) {
         if (localStorage.getItem('color-theme') === 'light') {
           document.documentElement.classList.add('dark');
@@ -90,13 +88,10 @@
         }
       }
     });
-  
-    document.addEventListener('DOMContentLoaded', function () {
-      const menuToggle = document.getElementById('menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
-      menuToggle.addEventListener('click', function () {
-        mobileMenu.classList.toggle('hidden');
-      });
+
+    // Menú móvil toggle
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
     });
   </script>
-  
+</header>
