@@ -4,78 +4,92 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios de Programación</title>
-  <!-- Incluyendo Tailwind CSS desde CDN para propósitos de prueba -->
+  <!-- Tailwind CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-  <section class="py-16 bg-gray-100 dark:bg-gray-800 h-full">
+
+  <section class="py-12 md:py-16 bg-gradient-to-b from-white via-[#FEB6B9] to-white dark:from-[#0f2c66] dark:via-[#133D93] dark:to-[#0f2c66]">
+    <div class="container mx-auto px-4">
+      <div class="text-center">
+        <div class="relative">
+          <p class="text-xl md:text-2xl lg:text-3xl font-semibold text-[#133D93] dark:text-white mb-10 leading-relaxed italic">
+            "La programación no es solo escribir código, es transformar ideas en soluciones que cambian el mundo."
+          </p>
+          <span class="absolute inset-x-0 flex justify-center">
+            <span class="text-[#133D93] dark:text-white border border-[#133D93] dark:border-white rounded-full w-12 h-12 flex items-center justify-center bg-white dark:bg-[#0f2f72] mt-12 shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                <path d="M12 21c-1.5-1.5-3-2.6-4.5-4-2.2-2.2-4.5-4.5-4.5-6.5C3 7.5 5.5 5 8.5 5c1.6 0 3.1.8 4 2.1C14.4 5.8 16 5 17.5 5 20.5 5 23 7.5 23 10.5c0 2-2.3 4.3-4.5 6.5-1.5 1.4-3 2.5-4.5 4z"></path>
+              </svg>
+            </span>
+          </span>
+        </div>
+        <p class="text-base md:text-lg text-[#1a1a1a] dark:text-[#f0f0f0] opacity-90 mt-2">
+          — Un apasionado de la tecnología
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE PAQUETES ACTUALIZADA VISUALMENTE -->
+  <section class="p-8 bg-gradient-to-b from-white via-[#FEB6B9] to-white dark:from-[#133D93] dark:via-[#0f2c66] dark:to-[#0f2f72]">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">
         Nuestros Paquetes de Programación
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Paquete Básico -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2">
-          <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-            Paquete Básico
-          </h3>
-          <p class="text-gray-600 dark:text-gray-400 mb-4">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-2xl border dark:border-gray-700 transition-transform transform hover:-translate-y-2">
+          <h3 class="text-xl font-semibold mb-4 text-[#133D93] dark:text-white">Paquete Básico</h3>
+          <p class="text-gray-600 dark:text-gray-200 mb-4">
             Desarrollamos páginas web sencillas con un máximo de 5 secciones, diseño responsivo y optimización básica para SEO.
           </p>
-          <ul class="text-gray-600 dark:text-gray-400 mb-4">
-            <li>- Hasta 5 secciones</li>
-            <li>- Diseño responsivo</li>
-            <li>- SEO básico</li>
-            <li>- Integración con redes sociales</li>
+          <ul class="text-gray-600 dark:text-gray-200 mb-4">
+            <li class="py-1 border-b border-gray-200 dark:border-gray-700">- Hasta 5 secciones</li>
+            <li class="py-1 border-b border-gray-200 dark:border-gray-700">- Diseño responsivo</li>
+            <li class="py-1 border-b border-gray-200 dark:border-gray-700">- SEO básico</li>
+            <li class="py-1">- Integración con redes sociales</li>
           </ul>
-          <p class="font-semibold text-gray-800 dark:text-gray-200">Precio: $4,800 - $7,000 MXN</p>
-          <a href="#contact" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
-            Aprende más
-          </a>
+          <p class="font-semibold text-[#133D93] dark:text-[#FEB6B9]">Precio: $4,800 - $7,000 MXN</p>
+          <a href="#contact" class="text-blue-600 dark:text-blue-300 font-semibold hover:underline mt-2 inline-block">Aprende más</a>
         </div>
 
         <!-- Paquete Intermedio -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2">
-          <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-            Paquete Intermedio
-          </h3>
-          <p class="text-gray-600 dark:text-gray-400 mb-4">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-2xl border dark:border-gray-700 transition-transform transform hover:-translate-y-2">
+          <h3 class="text-xl font-semibold mb-4 text-[#133D93] dark:text-white">Paquete Intermedio</h3>
+          <p class="text-gray-600 dark:text-gray-200 mb-4">
             Incluye páginas web interactivas con funciones como formularios y chat en vivo, además de animaciones personalizadas.
           </p>
-          <ul class="text-gray-600 dark:text-gray-400 mb-4">
-            <li>- Todo lo del Paquete Básico</li>
-            <li>- Funcionalidades interactivas</li>
-            <li>- Animaciones personalizadas</li>
-            <li>- Integración con APIs externas</li>
+          <ul class="text-gray-600 dark:text-gray-200 mb-4">
+            <li class="py-1 border-b border-gray-200 dark:border-gray-700">- Todo lo del Paquete Básico</li>
+            <li class="py-1 border-b border-gray-200 dark:border-gray-700">- Funcionalidades interactivas</li>
+            <li class="py-1 border-b border-gray-200 dark:border-gray-700">- Animaciones personalizadas</li>
+            <li class="py-1">- Integración con APIs externas</li>
           </ul>
-          <p class="font-semibold text-gray-800 dark:text-gray-200">Precio: $8,800 - $20,000 MXN</p>
-          <a href="#contact" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
-            Aprende más
-          </a>
+          <p class="font-semibold text-[#133D93] dark:text-[#FEB6B9]">Precio: $8,800 - $20,000 MXN</p>
+          <a href="#contact" class="text-blue-600 dark:text-blue-300 font-semibold hover:underline mt-2 inline-block">Aprende más</a>
         </div>
 
         <!-- Paquete Avanzado -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2">
-          <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-            Paquete Avanzado
-          </h3>
-          <p class="text-gray-600 dark:text-gray-400 mb-4">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-2xl border dark:border-gray-700 transition-transform transform hover:-translate-y-2">
+          <h3 class="text-xl font-semibold mb-4 text-[#133D93] dark:text-white">Paquete Avanzado</h3>
+          <p class="text-gray-600 dark:text-gray-200 mb-4">
             Desarrollo personalizado con base de datos, autenticación de usuarios y optimización avanzada para SEO.
           </p>
-          <ul class="text-gray-600 dark:text-gray-400 mb-4">
-            <li>- Todo lo del Paquete Intermedio</li>
-            <li>- Desarrollo personalizado</li>
-            <li>- Base de datos</li>
-            <li>- Autenticación de usuarios</li>
-            <li>- Optimización avanzada de SEO</li>
+          <ul class="text-gray-600 dark:text-gray-200 mb-4">
+            <li class="py-1 border-b border-gray-200 dark:border-gray-700">- Todo lo del Paquete Intermedio</li>
+            <li class="py-1 border-b border-gray-200 dark:border-gray-700">- Desarrollo personalizado</li>
+            <li class="py-1 border-b border-gray-200 dark:border-gray-700">- Base de datos</li>
+            <li class="py-1 border-b border-gray-200 dark:border-gray-700">- Autenticación de usuarios</li>
+            <li class="py-1">- Optimización avanzada de SEO</li>
           </ul>
-          <p class="font-semibold text-gray-800 dark:text-gray-200">Precio: Desde $20,000 MXN</p>
-          <a href="#contact" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
-            Aprende más
-          </a>
+          <p class="font-semibold text-[#133D93] dark:text-[#FEB6B9]">Precio: Desde $20,000 MXN</p>
+          <a href="#contact" class="text-blue-600 dark:text-blue-300 font-semibold hover:underline mt-2 inline-block">Aprende más</a>
         </div>
       </div>
     </div>
   </section>
+
 </body>
 </html>

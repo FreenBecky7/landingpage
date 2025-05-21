@@ -1,97 +1,87 @@
-<header>
-  <nav class="bg-white dark:bg-gray-800 fixed top-0 left-0 right-0 z-50 shadow-md">
-    <div class="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-      <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2">
-        <img src="/img/logito.png" class="w-12 h-12 object-contain sm:w-20 sm:h-20" alt="Logo Kimstrong" />
-        <span class="text-xl sm:text-2xl font-bold text-[#1A237E] dark:text-[#F8BBD0]">Kimstrong</span>
-      </a>
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar Profesional</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a2e0e6ad63.js" crossorigin="anonymous"></script>
+  <style>
+    html, body {
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .backdrop-blur {
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 dark:bg-[#0f2c66] dark:text-white">
 
-      <!-- Botón móvil -->
-      <div class="lg:hidden">
-        <button id="menu-toggle" class="text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1A237E] p-2 rounded-md">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+  <!-- NAVBAR -->
+  <header class="backdrop-blur bg-white/70 dark:bg-[#102b5c]/80 shadow-md fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+
+        <!-- Logo y nombre -->
+        <a href="/" class="flex items-center space-x-3">
+          <img src="/img/logito.png" class="w-10 h-10 sm:w-14 sm:h-14 object-contain" alt="Logo Kimstrong" />
+          <span class="text-2xl sm:text-3xl font-bold text-[#1A237E] dark:text-[#F8BBD0] tracking-wide">Kimstrong</span>
+        </a>
+
+        <!-- Botón hamburguesa móvil -->
+        <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Menú principal -->
+        <nav id="main-nav" class="hidden md:flex gap-8 items-center text-sm font-semibold">
+          <a href="#" class="hover:text-[#FEB6B9] transition">Inicio</a>
+          <a href="#" class="hover:text-[#FEB6B9] transition">Servicios</a>
+          <a href="#" class="hover:text-[#FEB6B9] transition">Proyectos</a>
+          <a href="#" class="hover:text-[#FEB6B9] transition">Contacto</a>
+        </nav>
+
+        <!-- Botón modo oscuro -->
+        <button id="toggleDark" class="ml-4 text-xl p-2 rounded-full hover:bg-gray-200 dark:hover:bg-[#1a3b71] transition">
+          <i id="theme-icon" class="fas fa-moon dark:hidden"></i>
+          <i id="theme-icon-dark" class="fas fa-sun hidden dark:inline"></i>
         </button>
       </div>
 
-      <!-- Botones de acción -->
-      <div class="hidden lg:flex items-center space-x-4">
-        <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors">Inicio</a>
-        <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors">Acerca de</a>
-        <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors">Servicios</a>
-        <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors">Portafolio</a>
-        <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors">Habilidades</a>
-        <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-[#1A237E] transition-colors">Contacto</a>
-        <a href="#" class="text-white bg-[#1A237E] hover:bg-[#3949AB] px-4 py-2 rounded-md text-sm font-medium transition">Obtener cotización</a>
-        <button id="theme-toggle" class="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-          </svg>
-          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1z" />
-          </svg>
-        </button>
+      <!-- Menú móvil -->
+      <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 py-4 px-4 bg-white dark:bg-[#102b5c] rounded-b-lg shadow-md text-sm font-semibold">
+        <a href="#" class="hover:text-[#FEB6B9] transition">Inicio</a>
+        <a href="#" class="hover:text-[#FEB6B9] transition">Servicios</a>
+        <a href="#" class="hover:text-[#FEB6B9] transition">Proyectos</a>
+        <a href="#" class="hover:text-[#FEB6B9] transition">Contacto</a>
       </div>
     </div>
+  </header>
 
-    <!-- Menú móvil desplegable -->
-    <div id="mobile-menu" class="lg:hidden hidden px-4 pb-4 space-y-2">
-      <a href="#" class="block text-gray-700 dark:text-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Inicio</a>
-      <a href="#" class="block text-gray-700 dark:text-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Acerca de</a>
-      <a href="#" class="block text-gray-700 dark:text-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Servicios</a>
-      <a href="#" class="block text-gray-700 dark:text-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Portafolio</a>
-      <a href="#" class="block text-gray-700 dark:text-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Habilidades</a>
-      <a href="#" class="block text-gray-700 dark:text-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Contacto</a>
-      <a href="#" class="block text-white bg-[#1A237E] hover:bg-[#3949AB] py-2 px-4 rounded-md text-center">Obtener cotización</a>
-    </div>
-  </nav>
+  <!-- Espaciador -->
+  <div class="h-20"></div>
 
-  <!-- SCRIPT: Toggle tema y menú -->
   <script>
-    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const toggleBtn = document.getElementById('toggleDark');
+    const html = document.documentElement;
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-    if (
-      localStorage.getItem('color-theme') === 'dark' ||
-      (!('color-theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-      themeToggleLightIcon.classList.remove('hidden');
+    toggleBtn.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    if (localStorage.getItem('theme') === 'dark') {
+      html.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark');
-      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
     }
 
-    document.getElementById('theme-toggle').addEventListener('click', () => {
-      themeToggleDarkIcon.classList.toggle('hidden');
-      themeToggleLightIcon.classList.toggle('hidden');
-
-      if (localStorage.getItem('color-theme')) {
-        if (localStorage.getItem('color-theme') === 'light') {
-          document.documentElement.classList.add('dark');
-          localStorage.setItem('color-theme', 'dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-          localStorage.setItem('color-theme', 'light');
-        }
-      } else {
-        if (document.documentElement.classList.contains('dark')) {
-          document.documentElement.classList.remove('dark');
-          localStorage.setItem('color-theme', 'light');
-        } else {
-          document.documentElement.classList.add('dark');
-          localStorage.setItem('color-theme', 'dark');
-        }
-      }
-    });
-
-    // Menú móvil toggle
-    document.getElementById('menu-toggle').addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
   </script>
-</header>
+
+</body>
+</html>

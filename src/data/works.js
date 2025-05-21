@@ -40,4 +40,15 @@ export const works = [
         author: "Nelyda Yeray Mc",
         year: 2024,
       },
+      {
+        id: "Rastreo Satelital",
+        image: "/img/sat2.png",
+        name: "Rastreador de sátelites",
+        description:
+          "App móvil para rastrear satélites en tiempo real con una interfaz intuitiva. Disponible para Android e iOS.",
+
+        url: "",
+        author: "Nelyda Yeray Mc",
+        year: 2024,
+      },
 ];
