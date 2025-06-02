@@ -1,90 +1,126 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APRASRANET - Soluciones Digitales</title>
-    <link rel="icon" type="image/png" href="/img/loge.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kimstrong | Navbar y Secciones</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    html, body {
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .backdrop-blur {
+      backdrop-filter: blur(10px);
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-white text-gray-900 dark:bg-[#0f2c66] dark:text-white">
 
-<header>
-    <nav class="fixed top-0 w-full bg-white bg-opacity-95 shadow-lg px-6 py-4 transition-all duration-300 z-50" id="navbar">
-        <div class="flex justify-between items-center max-w-screen-xl mx-auto">
-            <a href="/" class="flex items-center">
-                <img src="/img/loge.png" class="w-10 h-10" alt="Logo" />
-                <span class="ml-3 text-xl font-extrabold text-gray-900 hidden md:block">APRASRA<span class="text-[#b04ac4]">NET</span></span>
-            </a>
-            <button id="menu-btn" class="lg:hidden text-gray-700 text-3xl">☰</button>
-            <div class="hidden lg:flex items-center space-x-6" id="menu">
-                <a href="/" class="text-gray-800 hover:text-[#b04ac4] transition font-semibold text-lg">Inicio</a>
-                <a href="#" class="text-gray-800 hover:text-[#b04ac4] transition font-semibold text-lg">Acerca de</a>
-                <a href="#" class="text-gray-800 hover:text-[#b04ac4] transition font-semibold text-lg">Servicios</a>
-                <a href="#" class="text-gray-800 hover:text-[#b04ac4] transition font-semibold text-lg">Portafolio</a>
-                <a href="#" class="text-gray-800 hover:text-[#b04ac4] transition font-semibold text-lg">Habilidades</a>
-                <a href="#" class="text-gray-800 hover:text-[#b04ac4] transition font-semibold text-lg">Contacto</a>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden flex flex-col items-center bg-white shadow-md rounded-lg py-4 absolute w-full left-0 top-16 lg:hidden">
-            <a href="/" class="text-gray-800 hover:text-[#b04ac4] transition font-semibold text-lg py-2">Inicio</a>
-            <a href="#" class="text-gray-800 hover:text-[#b04ac4] transition font-semibold text-lg py-2">Acerca de</a>
-            <a href="#" class="text-gray-800 hover:text-[#b04ac4] transition font-semibold text-lg py-2">Servicios</a>
-            <a href="#" class="text-gray-800 hover:text-[#b04ac4] transition font-semibold text-lg py-2">Portafolio</a>
-            <a href="#" class="text-gray-800 hover:text-[#b04ac4] transition font-semibold text-lg py-2">Habilidades</a>
-            <a href="#" class="text-gray-800 hover:text-[#b04ac4] transition font-semibold text-lg py-2">Contacto</a>
-        </div>
-    </nav>
-</header>
+  <!-- NAVBAR -->
+  <header class="backdrop-blur bg-white/70 dark:bg-[#102b5c]/80 shadow-md fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
 
-<main class="pt-24 px-6">
-    <section class="text-center bg-gradient-to-r from-[#b04ac4] to-[#8a38a1] text-white py-20 md:py-32 rounded-b-3xl shadow-xl">
-        <h1 class="text-4xl md:text-6xl font-extrabold animate-fade-in">Impulsamos Tu Negocio</h1>
-        <p class="text-lg md:text-2xl mt-4 md:mt-6 animate-fade-in delay-200">Soluciones digitales innovadoras para potenciar tu empresa</p>
-    </section>
-    
-    <div class="max-w-7xl mx-auto bg-white shadow-2xl rounded-3xl p-6 md:p-12 mt-[-40px] md:mt-[-60px] relative border border-gray-200">
-        <h2 class="text-3xl md:text-5xl font-bold text-center text-gray-900 mb-6 md:mb-12">Nuestros Servicios</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center hover:scale-105 transition-transform duration-300">
-                <img src="/img/DWeb.webp" alt="Desarrollo Web" class="w-full rounded-lg shadow-md">
-                <h3 class="text-2xl md:text-3xl font-bold mt-4 text-gray-900">Desarrollo Web</h3>
-                <p class="mt-2 text-gray-700 text-lg">Creamos sitios web modernos, rápidos y optimizados.</p>
-            </div>
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center hover:scale-105 transition-transform duration-300">
-                <img src="/img/app.webp" alt="Aplicaciones Móviles" class="w-full rounded-lg shadow-md">
-                <h3 class="text-2xl md:text-3xl font-bold mt-4 text-gray-900">Aplicaciones Móviles</h3>
-                <p class="mt-2 text-gray-700 text-lg">Apps nativas y multiplataforma con excelente experiencia.</p>
-            </div>
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center hover:scale-105 transition-transform duration-300">
-                <img src="/img/ux.webp" alt="Diseño UI/UX" class="w-full rounded-lg shadow-md">
-                <h3 class="text-2xl md:text-3xl font-bold mt-4 text-gray-900">Diseño UI/UX</h3>
-                <p class="mt-2 text-gray-700 text-lg">Interfaces intuitivas, atractivas y funcionales.</p>
-            </div>
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center hover:scale-105 transition-transform duration-300">
-                <img src="/img/gdt.webp" alt="Desarrollo de Videojuegos" class="w-full rounded-lg shadow-md">
-                <h3 class="text-2xl md:text-3xl font-bold mt-4 text-gray-900">Desarrollo de Juegos</h3>
-                <p class="mt-2 text-gray-700 text-lg">Videojuegos sencillos con Godot para entretenimiento y educación.</p>
-            </div>
-        </div>
+        <!-- Logo y nombre -->
+        <a href="/" class="flex items-center space-x-3">
+          <img src="/img/logito.png" class="w-10 h-10 sm:w-14 sm:h-14 object-contain" alt="Logo Kimstrong" />
+          <span class="text-2xl sm:text-3xl font-bold text-[#1A237E] dark:text-[#F8BBD0] tracking-wide">Kimstrong</span>
+        </a>
+
+        <!-- Botón hamburguesa móvil -->
+        <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+          ☰
+        </button>
+
+        <!-- Menú principal -->
+        <nav id="main-nav" class="hidden md:flex gap-8 items-center text-lg font-semibold text-black dark:text-gray-100">
+          <a href="#" class="hover:text-[#FEB6B9] transition">Inicio</a>
+          <a href="#" class="hover:text-[#FEB6B9] transition">Servicios</a>
+          <a href="#" class="hover:text-[#FEB6B9] transition">Proyectos</a>
+          <a href="#" class="hover:text-[#FEB6B9] transition">Contacto</a>
+        </nav>
+
+        <!-- Botón modo oscuro -->
+        <button id="toggleDark" class="ml-4 text-xl p-2 rounded-full hover:bg-gray-200 dark:hover:bg-[#1a3b71] transition">
+          <span id="icon-moon" class="block dark:hidden">🌙</span>
+          <span id="icon-sun" class="hidden dark:block">☀️</span>
+        </button>
+      </div>
+
+      <!-- Menú móvil -->
+      <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 py-4 px-4 bg-white dark:bg-[#102b5c] rounded-b-lg shadow-md text-lg font-semibold text-black dark:text-gray-100">
+        <a href="#" class="hover:text-[#FEB6B9] transition">Inicio</a>
+        <a href="#" class="hover:text-[#FEB6B9] transition">Servicios</a>
+        <a href="#" class="hover:text-[#FEB6B9] transition">Proyectos</a>
+        <a href="#" class="hover:text-[#FEB6B9] transition">Contacto</a>
+      </div>
     </div>
-</main>
+  </header>
 
-<footer class="mt-16 py-8 bg-gray-900 text-center text-white text-lg">
-    <p>© 2025 APRASRANET. Todos los derechos reservados.</p>
-</footer>
+  <!-- Espaciador para la navbar fija -->
+  <div class="h-20"></div>
 
-<script>
-    document.getElementById('menu-btn').addEventListener('click', function() {
-        document.getElementById('mobile-menu').classList.toggle('hidden');
+  <!-- Hero Section -->
+  <section class="py-20 text-center">
+    <h2 class="text-4xl md:text-6xl font-bold mb-4 text-azul dark:text-white">Impulsamos Tu Negocio</h2>
+    <p class="text-xl text-gray-700 dark:text-gray-300">Soluciones digitales innovadoras para potenciar tu empresa</p>
+  </section>
+
+  <!-- Servicios -->
+  <section class="bg-white dark:bg-gray-800 rounded-t-3xl py-16 px-6">
+    <h3 class="text-3xl font-bold text-center text-azul dark:text-white mb-12">Nuestros Servicios</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-rosa2 p-6 rounded-xl shadow-md dark:bg-gray-700">
+        <h4 class="text-xl font-bold mb-2">Desarrollo Web</h4>
+        <p>Diseños modernos y funcionales para destacar tu presencia online.</p>
+      </div>
+      <div class="bg-rosa2 p-6 rounded-xl shadow-md dark:bg-gray-700">
+        <h4 class="text-xl font-bold mb-2">Aplicaciones Móviles</h4>
+        <p>Apps a medida para Android e iOS adaptadas a tus necesidades.</p>
+      </div>
+      <div class="bg-rosa2 p-6 rounded-xl shadow-md dark:bg-gray-700">
+        <h4 class="text-xl font-bold mb-2">Marketing Digital</h4>
+        <p>Estrategias digitales para atraer, convertir y fidelizar clientes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script modo oscuro y menú -->
+  <script>
+    const toggleBtn = document.getElementById('toggleDark');
+    const html = document.documentElement;
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconMoon = document.getElementById('icon-moon');
+    const iconSun = document.getElementById('icon-sun');
+
+    // Alternar modo oscuro
+    toggleBtn.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      const isDark = html.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateIcons();
     });
-</script>
+
+    // Mantener tema entre sesiones
+    if (localStorage.getItem('theme') === 'dark') {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+    updateIcons();
+
+    function updateIcons() {
+      const isDark = html.classList.contains('dark');
+      iconMoon.classList.toggle('hidden', isDark);
+      iconSun.classList.toggle('hidden', !isDark);
+    }
+
+    // Menú móvil
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
 
 </body>
 </html>
