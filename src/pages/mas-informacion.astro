@@ -130,35 +130,56 @@
     </div>
   </section>
 
-  <!-- SECCIÓN PROYECTOS DESTACADOS CON CARRUSEL -->
-  <section id="proyectos" class="bg-[#f5f7fa] dark:bg-[#122c66] py-16 px-6 max-w-7xl mx-auto mt-20 rounded-3xl">
-    <h3 class="text-3xl font-bold text-center text-[#0a1f44] dark:text-white mb-12 animate__animated animate__fadeInDown">
-      Proyectos Destacados
-    </h3>
+ <!-- SECCIÓN PROYECTOS DESTACADOS CON CARRUSEL PROFESIONAL -->
+<section id="proyectos" class="bg-[#f5f7fa] dark:bg-[#122c66] py-16 px-0 w-full mt-20">
+  <h3 class="text-3xl font-bold text-center text-[#0a1f44] dark:text-white mb-12 animate__animated animate__fadeInDown">
+    Proyectos Destacados
+  </h3>
 
-    <div class="carousel">
+  <div class="relative overflow-hidden w-full">
+    <div id="carouselContainer" class="flex transition-transform duration-700 ease-in-out w-full">
       <!-- Proyecto 1 -->
-      <article class="carousel-item p-6 bg-white dark:bg-[#1a2f66]">
-        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Proyecto Ecommerce" class="rounded-xl w-full h-48 object-cover mb-4" />
-        <h4 class="text-xl font-bold mb-2">Ecommerce Minimalista</h4>
-        <p class="text-gray-700 dark:text-gray-300">Plataforma de comercio electrónico con diseño limpio, UI/UX optimizada y pago seguro.</p>
+      <article class="min-w-full px-6 box-border">
+        <div class="p-6 bg-white dark:bg-[#1a2f66] max-w-7xl mx-auto rounded-3xl">
+          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Proyecto Ecommerce" class="rounded-xl w-full h-64 object-cover mb-6" />
+          <h4 class="text-2xl font-bold mb-2 dark:text-white">Ecommerce Minimalista</h4>
+          <p class="text-gray-700 dark:text-gray-300 text-lg">Plataforma de comercio electrónico con diseño limpio, UI/UX optimizada y pago seguro.</p>
+        </div>
       </article>
 
       <!-- Proyecto 2 -->
-      <article class="carousel-item p-6 bg-white dark:bg-[#1a2f66]">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Proyecto App Móvil" class="rounded-xl w-full h-48 object-cover mb-4" />
-        <h4 class="text-xl font-bold mb-2">App para Gestión de Tareas</h4>
-        <p class="text-gray-700 dark:text-gray-300">Aplicación móvil con diseño minimalista para mejorar productividad y gestión diaria.</p>
+      <article class="min-w-full px-6 box-border">
+        <div class="p-6 bg-white dark:bg-[#1a2f66] max-w-7xl mx-auto rounded-3xl">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Proyecto App Móvil" class="rounded-xl w-full h-64 object-cover mb-6" />
+          <h4 class="text-2xl font-bold mb-2 dark:text-white">App para Gestión de Tareas</h4>
+          <p class="text-gray-700 dark:text-gray-300 text-lg">Aplicación móvil con diseño minimalista para mejorar productividad y gestión diaria.</p>
+        </div>
       </article>
 
       <!-- Proyecto 3 -->
-      <article class="carousel-item p-6 bg-white dark:bg-[#1a2f66]">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Proyecto Marketing Digital" class="rounded-xl w-full h-48 object-cover mb-4" />
-        <h4 class="text-xl font-bold mb-2">Campaña Marketing Digital</h4>
-        <p class="text-gray-700 dark:text-gray-300">Estrategias con diseño enfocado en conversión y experiencia de usuario.</p>
+      <article class="min-w-full px-6 box-border">
+        <div class="p-6 bg-white dark:bg-[#1a2f66] max-w-7xl mx-auto rounded-3xl">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Proyecto Marketing Digital" class="rounded-xl w-full h-64 object-cover mb-6" />
+          <h4 class="text-2xl font-bold mb-2 dark:text-white">Campaña Marketing Digital</h4>
+          <p class="text-gray-700 dark:text-gray-300 text-lg">Estrategias con diseño enfocado en conversión y experiencia de usuario.</p>
+        </div>
       </article>
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  // Autoplay del carrusel
+  let currentIndex = 0;
+  const carousel = document.getElementById("carouselContainer");
+  const totalItems = carousel.children.length;
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalItems;
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }, 5000); // cambia cada 5 segundos
+</script>
+
 
   <!-- SECCIÓN GALERÍA VIDEOJUEGOS -->
   <section id="videojuegos" class="bg-white dark:bg-gray-800 py-16 px-6 max-w-7xl mx-auto mt-20 rounded-3xl">
