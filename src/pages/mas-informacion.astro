@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kimstrong - Servicios Profesionales</title>
+  <title>Kimstrong</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <style>
@@ -44,10 +44,10 @@
 <body class="bg-white text-gray-900 dark:bg-[#0f2c66] dark:text-white">
 
   <!-- NAVBAR -->
-  <header class="backdrop-blur bg-white/70 dark:bg-[#102b5c]/80 shadow-md fixed w-full z-50">
+  <header class="backdrop-blur bg-white/90 dark:bg-[#102b5c]/90 shadow-md fixed w-full z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center h-20 px-4 sm:px-6 lg:px-8">
       <a href="#" class="flex items-center">
-       <img src="/img/logooo.png" class="w-28 h-28 sm:w-36 sm:h-36 object-contain" alt="Logo Nayafaye" />
+        <img src="/img/logooo.png" class="w-28 h-28 sm:w-36 sm:h-36 object-contain" alt="Logo Nayafaye" />
         <span class="ml-3 font-bold text-xl text-[#0a1f44] dark:text-white"></span>
       </a>
       <button id="menu-toggle" class="md:hidden text-2xl" aria-label="Menú móvil">☰</button>
@@ -63,15 +63,20 @@
         <span id="icon-sun" class="hidden">☀️</span>
       </button>
     </div>
-    <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 bg-white dark:bg-[#102b5c] p-4 rounded-b-lg text-lg font-semibold">
-      <a href="/" class="hover:text-[#1e3a8a] dark:hover:text-[#9ec1f7]">Inicio</a>
-      <a href="#servicios" class="hover:text-[#1e3a8a] dark:hover:text-[#9ec1f7]">Servicios</a>
-      <a href="#proyectos" class="hover:text-[#1e3a8a] dark:hover:text-[#9ec1f7]">Proyectos</a>
-      <a href="#videojuegos" class="hover:text-[#1e3a8a] dark:hover:text-[#9ec1f7]">Videojuegos</a>
-      <a href="#contacto" class="hover:text-[#1e3a8a] dark:hover:text-[#9ec1f7]">Contacto</a>
+
+    <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 bg-white dark:bg-[#102b5c] p-6 rounded-b-lg text-lg font-semibold shadow-lg transition duration-300 ease-in-out">
+      <a href="/" class="block px-4 py-2 rounded-md text-center hover:bg-[#1e3a8a] dark:hover:bg-[#9ec1f7] transition duration-200 ease-in-out">Inicio</a>
+      <a href="#servicios" class="block px-4 py-2 rounded-md text-center hover:bg-[#1e3a8a] dark:hover:bg-[#9ec1f7] transition duration-200 ease-in-out">Servicios</a>
+      <a href="#proyectos" class="block px-4 py-2 rounded-md text-center hover:bg-[#1e3a8a] dark:hover:bg-[#9ec1f7] transition duration-200 ease-in-out">Proyectos</a>
+      <a href="#videojuegos" class="block px-4 py-2 rounded-md text-center hover:bg-[#1e3a8a] dark:hover:bg-[#9ec1f7] transition duration-200 ease-in-out">Videojuegos</a>
+      <a href="#contacto" class="block px-4 py-2 rounded-md text-center hover:bg-[#1e3a8a] dark:hover:bg-[#9ec1f7] transition duration-200 ease-in-out">Contacto</a>
     </div>
+
   </header>
   <div class="h-20"></div>
+</body>
+</html>
+
 
   <!-- SECCIÓN SERVICIOS -->
   <section id="servicios" class="bg-white dark:bg-gray-800 py-16 px-6 rounded-t-3xl max-w-7xl mx-auto">
@@ -128,64 +133,76 @@
 
 </div>
 
-<div class="max-w-4xl mx-auto text-center mt-20 px-6">
-  <div class="bg-gradient-to-r from-[#dbeafe] via-[#c7d2fe] to-[#dbeafe] dark:from-[#1e3a8a] dark:via-[#312e81] dark:to-[#1e3a8a] p-8 rounded-2xl shadow-xl animate__animated animate__fadeInUp animate__slow">
-    <p class="text-[#0a1f44] dark:text-white text-xl leading-relaxed font-medium transition-all duration-700">
-      Cada proyecto es desarrollado con <span class="font-semibold text-[#2563eb] dark:text-[#60a5fa]">revisión minuciosa</span>, 
+<div class="max-w-4xl mx-auto text-center mt-20 px-4 sm:px-6 md:px-8">
+  <div class="bg-gradient-to-r from-[#dbeafe] via-[#c7d2fe] to-[#dbeafe] dark:from-[#1e3a8a] dark:via-[#312e81] dark:to-[#1e3a8a] p-6 sm:p-8 rounded-2xl shadow-xl animate__animated animate__fadeInUp animate__slow">
+    <p class="text-[#0a1f44] dark:text-white text-base sm:text-lg md:text-xl leading-relaxed font-medium transition-all duration-700">
+      Cada proyecto es desarrollado con 
+      <span class="font-semibold text-[#2563eb] dark:text-[#60a5fa]">revisión minuciosa</span>, 
       <span class="font-semibold text-[#2563eb] dark:text-[#60a5fa]">optimizaciones de alto rendimiento</span> y 
-      <span class="font-semibold text-[#2563eb] dark:text-[#60a5fa]">soporte continuo post-lanzamiento</span>.<br class="hidden md:block" />
+      <span class="font-semibold text-[#2563eb] dark:text-[#60a5fa]">soporte continuo post-lanzamiento</span>.
+      <br class="hidden md:block" />
       Nos aseguramos de ofrecer una <strong class="italic">experiencia impecable</strong> desde el diseño hasta la entrega final.
     </p>
   </div>
 </div>
 
 
- <section id="proyectos" class="bg-[#f5f7fa] dark:bg-[#122c66] py-24 px-6 w-full mt-20">
-  <h3 class="text-5xl font-extrabold text-center text-[#0a1f44] dark:text-white mb-20 animate__animated animate__fadeInDown">
+
+<section id="proyectos" class="bg-[#f5f7fa] dark:bg-[#122c66] py-20 px-4 sm:px-10 w-full">
+  <h3 class="text-4xl sm:text-5xl font-extrabold text-center text-[#0a1f44] dark:text-white mb-16 animate__animated animate__fadeInDown">
     Proyectos Destacados
   </h3>
 
-  <div class="relative overflow-hidden max-w-5xl mx-auto">
-    <div id="carouselProyectos" class="flex transition-transform duration-700 ease-in-out">
-      
+  <div class="relative overflow-hidden w-full">
+    <div id="carouselProyectos" class="flex transition-transform duration-700 ease-in-out w-full">
+
       <!-- Proyecto 1 -->
-      <div class="min-w-full px-6 box-border">
-        <div class="bg-white dark:bg-[#1a2f66] rounded-3xl overflow-hidden shadow-xl max-w-4xl mx-auto">
-          <div class="p-8">
+      <article class="min-w-full px-0">
+        <div class="bg-white dark:bg-[#1a2f66] rounded-3xl shadow-2xl overflow-hidden w-full p-6 flex flex-col lg:flex-row items-center gap-6">
+          <div class="w-full lg:w-1/2">
+            <img src="/img/library_assistant.png" alt="Library Assistant" 
+                 class="w-full h-64 object-cover rounded-xl shadow-lg" /> <!-- Altura fija -->
+          </div>
+          <div class="w-full lg:w-1/2 text-center lg:text-left">
             <h4 class="text-3xl font-bold text-[#0a1f44] dark:text-white mb-4">Library Assistant</h4>
-            <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+            <p class="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
               Sistema integral para el control de asistencia en la biblioteca de la UTZAC. Automatiza registros, mejora la organización académica y proporciona informes en tiempo real para una administración eficiente.
             </p>
-            <img src="/img/library_assistant.png" alt="Library Assistant" class="w-full h-64 object-cover rounded-xl" />
           </div>
         </div>
-      </div>
+      </article>
 
       <!-- Proyecto 2 -->
-      <div class="min-w-full px-6 box-border">
-        <div class="bg-white dark:bg-[#1a2f66] rounded-3xl overflow-hidden shadow-xl max-w-4xl mx-auto">
-          <div class="p-8">
+      <article class="min-w-full px-0">
+        <div class="bg-white dark:bg-[#1a2f66] rounded-3xl shadow-2xl overflow-hidden w-full p-6 flex flex-col lg:flex-row items-center gap-6">
+          <div class="w-full lg:w-1/2">
+            <img src="/img/Cfe.png" alt="LaCafe" 
+                 class="w-full h-64 object-cover rounded-xl shadow-lg" /> <!-- Altura fija -->
+          </div>
+          <div class="w-full lg:w-1/2 text-center lg:text-left">
             <h4 class="text-3xl font-bold text-[#0a1f44] dark:text-white mb-4">LaCafe</h4>
-            <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+            <p class="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
               Plataforma moderna para la gestión de pedidos en cafeterías. Permite a los usuarios realizar órdenes desde sus dispositivos y agiliza la atención del personal mediante notificaciones en tiempo real.
             </p>
-            <img src="/img/Cfe.png" alt="LaCafe" class="w-full h-64 object-cover rounded-xl" />
           </div>
         </div>
-      </div>
+      </article>
 
       <!-- Proyecto 3 -->
-      <div class="min-w-full px-6 box-border">
-        <div class="bg-white dark:bg-[#1a2f66] rounded-3xl overflow-hidden shadow-xl max-w-4xl mx-auto">
-          <div class="p-8">
+      <article class="min-w-full px-0">
+        <div class="bg-white dark:bg-[#1a2f66] rounded-3xl shadow-2xl overflow-hidden w-full p-6 flex flex-col lg:flex-row items-center gap-6">
+          <div class="w-full lg:w-1/2">
+            <img src="/img/sat2.png" alt="Rastreador de Satélites" 
+                 class="w-full h-64 object-cover rounded-xl shadow-lg" /> <!-- Altura fija -->
+          </div>
+          <div class="w-full lg:w-1/2 text-center lg:text-left">
             <h4 class="text-3xl font-bold text-[#0a1f44] dark:text-white mb-4">Rastreador de Satélites</h4>
-            <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+            <p class="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
               Aplicación móvil desarrollada para rastrear satélites en tiempo real. Cuenta con mapas interactivos, visualización de trayectorias y alertas personalizadas. Diseñada para entusiastas del espacio y con interfaz adaptable para Android e iOS.
             </p>
-            <img src="/img/sat2.png" alt="Rastreador de Satélites" class="w-full h-72 object-cover rounded-xl" />
           </div>
         </div>
-      </div>
+      </article>
 
     </div>
   </div>
@@ -199,77 +216,77 @@
   setInterval(() => {
     currentIndex = (currentIndex + 1) % totalItems;
     carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }, 6500); // cambia cada 6.5 segundos
+  }, 6500);
 </script>
 
 
-  <!-- SECCIÓN GALERÍA VIDEOJUEGOS -->
-  <section id="videojuegos" class="bg-white dark:bg-gray-800 py-16 px-6 max-w-7xl mx-auto mt-20 rounded-3xl">
-    <h3 class="text-3xl font-bold text-center text-[#0a1f44] dark:text-white mb-12 animate__animated animate__fadeInDown">
-      Videojuegos en Godot
-    </h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
-        <img src="https://cdn.pixabay.com/photo/2020/07/12/19/24/gaming-5404217_1280.jpg" alt="Juego 1" class="w-full h-48 object-cover" />
-      </div>
-      <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
-        <img src="https://cdn.pixabay.com/photo/2021/01/11/21/27/game-5907667_1280.jpg" alt="Juego 2" class="w-full h-48 object-cover" />
-      </div>
-      <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
-        <img src="https://cdn.pixabay.com/photo/2017/08/28/21/39/joystick-2693066_1280.jpg" alt="Juego 3" class="w-full h-48 object-cover" />
-      </div>
-    </div>
-    <p class="mt-6 max-w-xl mx-auto text-center text-gray-700 dark:text-gray-300">
-      Prototipos y juegos 2D elegantes y funcionales, desarrollados con pasión y el motor Godot.
-    </p>
-  </section>
+<script>
+  let currentIndex = 0;
+  const carousel = document.getElementById("carouselProyectos");
+  const totalItems = carousel.children.length;
 
- <!-- Contacto -->
-<section id="contacto" class="bg-[#f5f7fa] dark:bg-[#122c66] py-16 px-6 max-w-3xl mx-auto mt-20 rounded-3xl shadow-2xl">
-  <h3 class="text-4xl font-bold text-center text-[#0a1f44] dark:text-white mb-10 animate__animated animate__fadeInDown">
-    Contáctanos
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalItems;
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }, 6500);
+</script>
+
+<!-- SECCIÓN GALERÍA VIDEOJUEGOS -->
+<section id="videojuegos" class="bg-white dark:bg-gray-800 py-16 px-6 max-w-7xl mx-auto mt-20 rounded-3xl">
+  <h3 class="text-3xl font-bold text-center text-[#0a1f44] dark:text-white mb-12 animate__animated animate__fadeInDown">
+    Videojuegos en Godot
   </h3>
-  <form id="form-contacto" class="bg-white dark:bg-[#1a2f66] p-8 rounded-xl shadow-md space-y-6">
-    <div>
-      <label for="nombre" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-200">Nombre Completo</label>
-      <input name="nombre" id="nombre" type="text" required
-        class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#1e3a8a] transition" />
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+      <img src="https://cdn.pixabay.com/photo/2020/07/12/19/24/gaming-5404217_1280.jpg" alt="Juego 1" class="w-full h-48 object-cover" />
     </div>
-    <div>
-      <label for="email" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-200">Correo Electrónico</label>
-      <input name="email" id="email" type="email" required
-        class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#1e3a8a] transition" />
+    <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+      <img src="https://cdn.pixabay.com/photo/2021/01/11/21/27/game-5907667_1280.jpg" alt="Juego 2" class="w-full h-48 object-cover" />
     </div>
-    <div>
-      <label for="mensaje" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-200">Mensaje</label>
-      <textarea name="mensaje" id="mensaje" rows="5" required
-        class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#1e3a8a] transition"></textarea>
+    <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+      <img src="https://cdn.pixabay.com/photo/2017/08/28/21/39/joystick-2693066_1280.jpg" alt="Juego 3" class="w-full h-48 object-cover" />
     </div>
-    <button type="submit"
-      class="w-full bg-[#1e3a8a] hover:bg-[#12306f] text-white text-lg font-semibold py-3 rounded-lg shadow transition duration-300">
-      Enviar Mensaje
-    </button>
-    <p id="mensaje-exito" class="text-center text-green-600 dark:text-green-400 hidden mt-4">¡Mensaje enviado con éxito!</p>
-  </form>
+  </div>
+  <p class="mt-6 max-w-xl mx-auto text-center text-gray-700 dark:text-gray-300">
+    Prototipos y juegos 2D elegantes y funcionales, desarrollados con pasión y el motor Godot.
+  </p>
 </section>
 
-<!-- EmailJS Script -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  emailjs.init('YOUR_PUBLIC_KEY'); // Reemplaza con tu clave pública de EmailJS
+<section class="bg-[#f5f7fa] dark:bg-[#122c66] py-16 px-6 text-center">
+  <h3 class="text-3xl font-bold text-[#0a1f44] dark:text-white mb-10">Nuestra experiencia</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto text-[#1e3a8a] dark:text-white">
+    <div>
+      <p class="text-4xl font-extrabold">+4</p>
+      <p class="text-lg">Años de experiencia</p>
+    </div>
+    <div>
+      <p class="text-4xl font-extrabold">+30</p>
+      <p class="text-lg">Proyectos entregados</p>
+    </div>
+    <div>
+      <p class="text-4xl font-extrabold">+30</p>
+      <p class="text-lg">Clientes felices</p>
+    </div>
+  </div>
+</section>
 
-  document.getElementById('form-contacto').addEventListener('submit', function (e) {
-    e.preventDefault();
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-      .then(function () {
-        document.getElementById('mensaje-exito').classList.remove('hidden');
-        document.getElementById('form-contacto').reset();
-      }, function (error) {
-        alert('Ocurrió un error al enviar el mensaje. Intenta más tarde.');
-        console.error(error);
-      });
-  });
-</script>
+
+
+ <!-- Incluye esto donde quieras mostrar el botón visual -->
+<a href="mailto:srchfreenbeck@gmail.com?subject=Agendar%20una%20llamada&body=Hola%2C%20me%20gustaría%20agendar%20una%20llamada%20para%20discutir%20nuestras%20opciones."
+   class="group block max-w-md mx-auto bg-white dark:bg-[#1a2f66] border border-[#4A6FA5] dark:border-[#ECEFF1] rounded-2xl shadow-lg p-6 transition-transform transform hover:scale-[1.02] hover:shadow-xl cursor-pointer">
+  <div class="flex items-center space-x-4">
+    <div class="flex-shrink-0 bg-[#4A6FA5] dark:bg-white text-white dark:text-[#1a2f66] rounded-full p-3 transition group-hover:rotate-6">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553 2.276A1 1 0 0120 13.118v4.764a1 1 0 01-1.447.894L15 16.118M4 6v12a1 1 0 001.447.894L11 16.118M11 6v10.118M11 6l-5.553 2.276A1 1 0 004 9.118v4.764a1 1 0 001.447.894L11 14.118" />
+      </svg>
+    </div>
+    <div>
+      <h4 class="text-lg font-semibold text-[#0a1f44] dark:text-white">Agendar una llamada</h4>
+      <p class="text-sm text-gray-600 dark:text-gray-300">Haz clic aquí para enviarnos un correo y coordinar una reunión personalizada.</p>
+    </div>
+  </div>
+</a>
 
   <!-- SCRIPTS -->
   <script>
