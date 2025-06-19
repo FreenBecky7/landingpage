@@ -4,33 +4,45 @@ export interface Props {
   image: string
   name: string
   description: string
-  url: string
+  author: string
+  year: number
+  tech: string
+  highlights: string
 }
 
-const { id, image, name, description, url } = Astro.props
+const { id, image, name, description, author, year, tech, highlights } = Astro.props
 ---
 
-<section class="bg-gradient-to-b from-white via-[#CBD5E1] to-white dark:from-[#0f2c66] dark:via-[#133D93] dark:to-[#0f2c66] py-12 px-4 transition-colors duration-300 rounded-xl">
-  <div class="max-w-4xl mx-auto">
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-      <a href={`/${id}`} class="block overflow-hidden rounded-xl">
-        <img 
-          class="w-full h-48 object-cover rounded-xl transition-transform duration-500 hover:scale-105 shadow-md" 
-          src={image} 
-          alt={name} 
-        />
-      </a>
-      <div class="mt-4">
-        <h4 class="text-2xl font-semibold text-[#133D93] dark:text-white">{name}</h4>
-        <p class="text-[#1a1a1a] dark:text-[#f0f0f0] mt-2">{description}</p>
-        <a 
-          href={url} 
-          target="_blank" 
-          class="mt-4 inline-block bg-[#133D93] text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-[#0F2F72] hover:shadow-lg"
-        >
-          Ver más
-        </a>
-      </div>
+<section class="relative">
+  <div class="bg-white dark:bg-[#1a273a] rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+    <img src={image} alt={name} class="w-full h-48 object-cover rounded-t-xl" />
+    <div class="p-5">
+      <h4 class="text-xl font-semibold text-[#0a1f44] dark:text-white">{name}</h4>
+      <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">{description}</p>
+
+      <button
+        class="mt-4 inline-block px-4 py-2 bg-[#4A6FA5] text-white rounded-lg hover:bg-[#3b5d8f] transition text-sm font-medium"
+        onclick={`document.getElementById('${id}-modal').showModal()`}
+      >
+        Ver más
+      </button>
     </div>
   </div>
+
+  <!-- Modal -->
+  <dialog id={`${id}-modal`} class="rounded-xl w-full max-w-xl bg-white dark:bg-[#0B0F1A] p-6 shadow-2xl">
+    <form method="dialog" class="text-right">
+      <button class="text-sm text-[#4A6FA5] dark:text-[#60a5fa] hover:underline">Cerrar ✕</button>
+    </form>
+    <div class="mt-2">
+      <h2 class="text-2xl font-bold text-[#0a1f44] dark:text-white">{name}</h2>
+      <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">{description}</p>
+      <ul class="text-sm mt-4 space-y-1">
+        <li><strong class="text-[#1e3a8a] dark:text-[#60a5fa]">Autor:</strong> {author}</li>
+        <li><strong class="text-[#1e3a8a] dark:text-[#60a5fa]">Año:</strong> {year}</li>
+        <li><strong class="text-[#1e3a8a] dark:text-[#60a5fa]">Tecnologías:</strong> {tech}</li>
+        <li><strong class="text-[#1e3a8a] dark:text-[#60a5fa]">Destacado:</strong> {highlights}</li>
+      </ul>
+    </div>
+  </dialog>
 </section>

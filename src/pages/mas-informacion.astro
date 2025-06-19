@@ -41,105 +41,110 @@
     }
   </style>
 </head>
-<body class="bg-white text-gray-900 dark:bg-[#0f2c66] dark:text-white">
+<body class="bg-white text-gray-900 dark:bg-[#0B0F1A] dark:text-white">
 
   <!-- NAVBAR -->
-  <header class="backdrop-blur bg-white/90 dark:bg-[#102b5c]/90 shadow-md fixed w-full z-50">
+  <header class="backdrop-blur bg-[#E1E5EA]/80 dark:bg-[#121E2B]/80 shadow-md fixed w-full z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center h-20 px-4 sm:px-6 lg:px-8">
       <a href="#" class="flex items-center">
         <img src="/img/logooo.png" class="w-28 h-28 sm:w-36 sm:h-36 object-contain" alt="Logo Nayafaye" />
         <span class="ml-3 font-bold text-xl text-[#0a1f44] dark:text-white"></span>
       </a>
+      
       <button id="menu-toggle" class="md:hidden text-2xl" aria-label="Menú móvil">☰</button>
-      <nav id="main-nav" class="hidden md:flex gap-8 text-lg font-semibold">
-        <a href="/" class="hover:text-[#1e3a8a] dark:hover:text-[#9ec1f7]">Inicio</a>
-        <a href="#servicios" class="hover:text-[#1e3a8a] dark:hover:text-[#9ec1f7]">Servicios</a>
-        <a href="#proyectos" class="hover:text-[#1e3a8a] dark:hover:text-[#9ec1f7]">Proyectos</a>
-        <a href="#videojuegos" class="hover:text-[#1e3a8a] dark:hover:text-[#9ec1f7]">Videojuegos</a>
-        <a href="#contacto" class="hover:text-[#1e3a8a] dark:hover:text-[#9ec1f7]">Contacto</a>
+      
+      <nav id="main-nav" class="hidden md:flex gap-8 text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1]">
+        <a href="/" class="hover:text-[#4A6FA5] transition">Inicio</a>
+        <a href="#servicios" class="hover:text-[#4A6FA5] transition">Servicios</a>
+        <a href="#proyectos" class="hover:text-[#4A6FA5] transition">Proyectos</a>
+        <a href="#videojuegos" class="hover:text-[#4A6FA5] transition">Videojuegos</a>
+        <a href="#contacto" class="hover:text-[#4A6FA5] transition">Contacto</a>
       </nav>
-      <button id="toggleDark" class="ml-4 text-xl p-2 rounded-full" aria-label="Cambiar tema">
+      
+      <button id="toggleDark" class="ml-4 text-xl p-2 rounded-full hover:bg-[#E1E5EA] dark:hover:bg-[#1A3B71] transition" aria-label="Cambiar tema">
         <span id="icon-moon">🌙</span>
         <span id="icon-sun" class="hidden">☀️</span>
       </button>
     </div>
 
-    <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 bg-white dark:bg-[#102b5c] p-6 rounded-b-lg text-lg font-semibold shadow-lg transition duration-300 ease-in-out">
-      <a href="/" class="block px-4 py-2 rounded-md text-center hover:bg-[#1e3a8a] dark:hover:bg-[#9ec1f7] transition duration-200 ease-in-out">Inicio</a>
-      <a href="#servicios" class="block px-4 py-2 rounded-md text-center hover:bg-[#1e3a8a] dark:hover:bg-[#9ec1f7] transition duration-200 ease-in-out">Servicios</a>
-      <a href="#proyectos" class="block px-4 py-2 rounded-md text-center hover:bg-[#1e3a8a] dark:hover:bg-[#9ec1f7] transition duration-200 ease-in-out">Proyectos</a>
-      <a href="#videojuegos" class="block px-4 py-2 rounded-md text-center hover:bg-[#1e3a8a] dark:hover:bg-[#9ec1f7] transition duration-200 ease-in-out">Videojuegos</a>
-      <a href="#contacto" class="block px-4 py-2 rounded-md text-center hover:bg-[#1e3a8a] dark:hover:bg-[#9ec1f7] transition duration-200 ease-in-out">Contacto</a>
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 bg-[#E1E5EA]/90 dark:bg-[#121E2B]/90 p-4 rounded-b-lg text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1]">
+      <a href="/" class="hover:text-[#4A6FA5] transition">Inicio</a>
+      <a href="#servicios" class="hover:text-[#4A6FA5] transition">Servicios</a>
+      <a href="#proyectos" class="hover:text-[#4A6FA5] transition">Proyectos</a>
+      <a href="#videojuegos" class="hover:text-[#4A6FA5] transition">Videojuegos</a>
+      <a href="#contacto" class="hover:text-[#4A6FA5] transition">Contacto</a>
     </div>
-
   </header>
-  <div class="h-20"></div>
-</body>
-</html>
+
+ <!-- Separador del navbar -->
+<div class="h-20"></div>
+ <div class="pt-16"></div> <!-- Espacio para separar del navbar -->
+
+<h3 class="text-3xl sm:text-4xl font-semibold text-center text-[#0a1f44] dark:text-white mb-12 tracking-normal leading-snug" style="font-family: 'Helvetica Neue', Arial, sans-serif;">
+  Servicios
+</h3>
 
 
-  <!-- SECCIÓN SERVICIOS -->
-  <section id="servicios" class="bg-white dark:bg-gray-800 py-16 px-6 rounded-t-3xl max-w-7xl mx-auto">
-    <h3 class="text-3xl font-bold text-center text-[#0a1f44] dark:text-white mb-12 animate__animated animate__fadeInDown">
-      Nuestros Servicios
-    </h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Cards de Servicios -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-      <!-- Servicio 1 -->
-      <article class="bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition duration-300 animate__animated animate__fadeInUp animate__delay-1s">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Desarrollo Web" class="rounded-t-xl w-full h-48 object-cover" />
-        <div class="p-6">
-          <h4 class="text-xl font-bold text-[#1e3a8a] mb-2">Desarrollo Web</h4>
-          <p class="text-gray-700 dark:text-gray-300">
-            Diseño y desarrollo de sitios web con estética minimalista y UX impecable.
-          </p>
-        </div>
-      </article>
+  <!-- Card -->
+   
+  <article class="bg-white dark:bg-[#1a273a] text-[#0B0F1A] dark:text-[#f1f5f9] rounded-xl shadow-md hover:shadow-xl transition duration-300 animate__animated animate__fadeInUp animate__delay-1s">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Desarrollo Web" class="rounded-t-xl w-full h-48 object-cover" />
+    <div class="p-6">
+      <h4 class="text-xl font-bold text-[#1e3a8a] dark:text-[#60a5fa] mb-2">Desarrollo Web</h4>
+      <p class="text-gray-700 dark:text-gray-300">
+        Diseño y desarrollo de sitios web con estética minimalista y UX impecable.
+      </p>
+    </div>
+  </article>
 
-      <!-- Servicio 2 -->
-      <article class="bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition duration-300 animate__animated animate__fadeInUp animate__delay-2s">
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Apps móviles" class="rounded-t-xl w-full h-48 object-cover" />
-        <div class="p-6">
-          <h4 class="text-xl font-bold text-[#1e3a8a] mb-2">Aplicaciones Móviles</h4>
-          <p class="text-gray-700 dark:text-gray-300">
-            Apps nativas e híbridas con interfaces limpias y rendimiento optimizado.
-          </p>
-        </div>
-      </article>
+  <article class="bg-white dark:bg-[#1a273a] text-[#0B0F1A] dark:text-[#f1f5f9] rounded-xl shadow-md hover:shadow-xl transition duration-300 animate__animated animate__fadeInUp animate__delay-2s">
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Apps móviles" class="rounded-t-xl w-full h-48 object-cover" />
+    <div class="p-6">
+      <h4 class="text-xl font-bold text-[#1e3a8a] dark:text-[#60a5fa] mb-2">Aplicaciones Móviles</h4>
+      <p class="text-gray-700 dark:text-gray-300">
+        Apps nativas e híbridas con interfaces limpias y rendimiento optimizado.
+      </p>
+    </div>
+  </article>
 
-      <!-- Servicio 3 -->
-      <article class="bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition duration-300 animate__animated animate__fadeInUp animate__delay-3s">
-        <img src="img/app.webp" alt="Marketing Digital" class="rounded-t-xl w-full h-48 object-cover" />
-        <div class="p-6">
-          <h4 class="text-xl font-bold text-[#1e3a8a] mb-2">Marketing Digital</h4>
-          <p class="text-gray-700 dark:text-gray-300">
-            Estrategias digitales con diseño minimalista y enfoque en conversión.
-          </p>
-        </div>
-      </article>
+  <article class="bg-white dark:bg-[#1a273a] text-[#0B0F1A] dark:text-[#f1f5f9] rounded-xl shadow-md hover:shadow-xl transition duration-300 animate__animated animate__fadeInUp animate__delay-3s">
+    <img src="img/mkting.png" alt="Marketing Digital" class="rounded-t-xl w-full h-48 object-cover" />
+    <div class="p-6">
+      <h4 class="text-xl font-bold text-[#1e3a8a] dark:text-[#60a5fa] mb-2">Marketing Digital</h4>
+      <p class="text-gray-700 dark:text-gray-300">
+        Estrategias digitales con diseño minimalista y enfoque en conversión.
+      </p>
+    </div>
+  </article>
 
-      <!-- Servicio 4 -->
-      <article class="bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition duration-300 animate__animated animate__fadeInUp animate__delay-4s">
-        <img src="img/gdt.webp" alt="Videojuegos en Godot" class="rounded-t-xl w-full h-48 object-cover" />
-        <div class="p-6">
-          <h4 class="text-xl font-bold text-[#1e3a8a] mb-2">Videojuegos en Godot</h4>
-          <p class="text-gray-700 dark:text-gray-300">
-            Prototipos y juegos 2D elegantes y funcionales, creados con Godot Engine.
-          </p>
-        </div>
-      </article>
-
-   </div>
+  <article class="bg-white dark:bg-[#1a273a] text-[#0B0F1A] dark:text-[#f1f5f9] rounded-xl shadow-md hover:shadow-xl transition duration-300 animate__animated animate__fadeInUp animate__delay-4s">
+    <img src="img/godot.png" alt="Videojuegos en Godot" class="rounded-t-xl w-full h-48 object-cover" />
+    <div class="p-6">
+      <h4 class="text-xl font-bold text-[#1e3a8a] dark:text-[#60a5fa] mb-2">Videojuegos en Godot</h4>
+      <p class="text-gray-700 dark:text-gray-300">
+        Prototipos y juegos 2D elegantes y funcionales, creados con Godot Engine.
+      </p>
+    </div>
+  </article>
 
 </div>
 
+<!-- Bloque final adaptado profesionalmente -->
 <div class="max-w-4xl mx-auto text-center mt-20 px-4 sm:px-6 md:px-8">
-  <div class="bg-gradient-to-r from-[#dbeafe] via-[#c7d2fe] to-[#dbeafe] dark:from-[#1e3a8a] dark:via-[#312e81] dark:to-[#1e3a8a] p-6 sm:p-8 rounded-2xl shadow-xl animate__animated animate__fadeInUp animate__slow">
-    <p class="text-[#0a1f44] dark:text-white text-base sm:text-lg md:text-xl leading-relaxed font-medium transition-all duration-700">
+  <div class="bg-white dark:bg-[#111C29] 
+              text-[#0a1f44] dark:text-white 
+              border border-transparent dark:border-[#2D3A55] 
+              shadow-xl dark:shadow-[0_0_25px_rgba(0,0,0,0.4)] 
+              rounded-2xl p-6 sm:p-8 transition-all duration-700 animate__animated animate__fadeInUp animate__slow">
+    <p class="text-base sm:text-lg md:text-xl leading-relaxed font-medium">
       Cada proyecto es desarrollado con 
-      <span class="font-semibold text-[#2563eb] dark:text-[#60a5fa]">revisión minuciosa</span>, 
-      <span class="font-semibold text-[#2563eb] dark:text-[#60a5fa]">optimizaciones de alto rendimiento</span> y 
-      <span class="font-semibold text-[#2563eb] dark:text-[#60a5fa]">soporte continuo post-lanzamiento</span>.
+      <span class="font-semibold text-[#2563eb] dark:text-white">revisión minuciosa</span>, 
+      <span class="font-semibold text-[#2563eb] dark:text-white">optimizaciones de alto rendimiento</span> y 
+      <span class="font-semibold text-[#2563eb] dark:text-white">soporte continuo post-lanzamiento</span>.
       <br class="hidden md:block" />
       Nos aseguramos de ofrecer una <strong class="italic">experiencia impecable</strong> desde el diseño hasta la entrega final.
     </p>
@@ -148,7 +153,9 @@
 
 
 
-<section id="proyectos" class="bg-[#f5f7fa] dark:bg-[#122c66] py-20 px-4 sm:px-10 w-full">
+
+
+<section id="proyectos" class="bg-[#f5f7fa] dark:bg-[#111C29] py-20 px-4 sm:px-10 w-full">
   <h3 class="text-4xl sm:text-5xl font-extrabold text-center text-[#0a1f44] dark:text-white mb-16 animate__animated animate__fadeInDown">
     Proyectos Destacados
   </h3>
@@ -158,14 +165,14 @@
 
       <!-- Proyecto 1 -->
       <article class="min-w-full px-0">
-        <div class="bg-white dark:bg-[#1a2f66] rounded-3xl shadow-2xl overflow-hidden w-full p-6 flex flex-col lg:flex-row items-center gap-6">
+        <div class="bg-white dark:bg-[#111C29] rounded-3xl shadow-2xl overflow-hidden w-full p-6 flex flex-col lg:flex-row items-center gap-8 transition-colors duration-500">
           <div class="w-full lg:w-1/2">
             <img src="/img/library_assistant.png" alt="Library Assistant" 
-                 class="w-full h-64 object-cover rounded-xl shadow-lg" /> <!-- Altura fija -->
+                 class="w-full h-72 lg:h-96 object-cover rounded-xl shadow-lg transition-all duration-500" />
           </div>
           <div class="w-full lg:w-1/2 text-center lg:text-left">
-            <h4 class="text-3xl font-bold text-[#0a1f44] dark:text-white mb-4">Library Assistant</h4>
-            <p class="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <h4 class="text-3xl font-bold text-[#0a1f44] dark:text-white mb-4 transition-colors duration-500">Library Assistant</h4>
+            <p class="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 transition-colors duration-500">
               Sistema integral para el control de asistencia en la biblioteca de la UTZAC. Automatiza registros, mejora la organización académica y proporciona informes en tiempo real para una administración eficiente.
             </p>
           </div>
@@ -174,14 +181,14 @@
 
       <!-- Proyecto 2 -->
       <article class="min-w-full px-0">
-        <div class="bg-white dark:bg-[#1a2f66] rounded-3xl shadow-2xl overflow-hidden w-full p-6 flex flex-col lg:flex-row items-center gap-6">
+        <div class="bg-white dark:bg-[#111C29] rounded-3xl shadow-2xl overflow-hidden w-full p-6 flex flex-col lg:flex-row items-center gap-8 transition-colors duration-500">
           <div class="w-full lg:w-1/2">
             <img src="/img/Cfe.png" alt="LaCafe" 
-                 class="w-full h-64 object-cover rounded-xl shadow-lg" /> <!-- Altura fija -->
+                 class="w-full h-72 lg:h-96 object-cover rounded-xl shadow-lg transition-all duration-500" />
           </div>
           <div class="w-full lg:w-1/2 text-center lg:text-left">
-            <h4 class="text-3xl font-bold text-[#0a1f44] dark:text-white mb-4">LaCafe</h4>
-            <p class="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <h4 class="text-3xl font-bold text-[#0a1f44] dark:text-white mb-4 transition-colors duration-500">LaCafe</h4>
+            <p class="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 transition-colors duration-500">
               Plataforma moderna para la gestión de pedidos en cafeterías. Permite a los usuarios realizar órdenes desde sus dispositivos y agiliza la atención del personal mediante notificaciones en tiempo real.
             </p>
           </div>
@@ -190,14 +197,14 @@
 
       <!-- Proyecto 3 -->
       <article class="min-w-full px-0">
-        <div class="bg-white dark:bg-[#1a2f66] rounded-3xl shadow-2xl overflow-hidden w-full p-6 flex flex-col lg:flex-row items-center gap-6">
+        <div class="bg-white dark:bg-[#111C29] rounded-3xl shadow-2xl overflow-hidden w-full p-6 flex flex-col lg:flex-row items-center gap-8 transition-colors duration-500">
           <div class="w-full lg:w-1/2">
             <img src="/img/sat2.png" alt="Rastreador de Satélites" 
-                 class="w-full h-64 object-cover rounded-xl shadow-lg" /> <!-- Altura fija -->
+                 class="w-full h-72 lg:h-96 object-cover rounded-xl shadow-lg transition-all duration-500" />
           </div>
           <div class="w-full lg:w-1/2 text-center lg:text-left">
-            <h4 class="text-3xl font-bold text-[#0a1f44] dark:text-white mb-4">Rastreador de Satélites</h4>
-            <p class="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <h4 class="text-3xl font-bold text-[#0a1f44] dark:text-white mb-4 transition-colors duration-500">Rastreador de Satélites</h4>
+            <p class="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 transition-colors duration-500">
               Aplicación móvil desarrollada para rastrear satélites en tiempo real. Cuenta con mapas interactivos, visualización de trayectorias y alertas personalizadas. Diseñada para entusiastas del espacio y con interfaz adaptable para Android e iOS.
             </p>
           </div>
@@ -207,6 +214,7 @@
     </div>
   </div>
 </section>
+
 
 <script>
   let currentIndex = 0;
@@ -252,9 +260,9 @@
   </p>
 </section>
 
-<section class="bg-[#f5f7fa] dark:bg-[#122c66] py-16 px-6 text-center">
-  <h3 class="text-3xl font-bold text-[#0a1f44] dark:text-white mb-10">Nuestra experiencia</h3>
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto text-[#1e3a8a] dark:text-white">
+<section class="bg-[#f5f7fa] dark:bg-[#111C29] py-16 px-6 text-center transition-colors duration-500">
+  <h3 class="text-3xl font-bold text-[#0a1f44] dark:text-white mb-10 transition-colors duration-500">Nuestra experiencia</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto text-[#1e3a8a] dark:text-white transition-colors duration-500">
     <div>
       <p class="text-4xl font-extrabold">+4</p>
       <p class="text-lg">Años de experiencia</p>
@@ -270,23 +278,40 @@
   </div>
 </section>
 
-
-
- <!-- Incluye esto donde quieras mostrar el botón visual -->
+<!-- Botón Agendar llamada -->
 <a href="mailto:srchfreenbeck@gmail.com?subject=Agendar%20una%20llamada&body=Hola%2C%20me%20gustaría%20agendar%20una%20llamada%20para%20discutir%20nuestras%20opciones."
-   class="group block max-w-md mx-auto bg-white dark:bg-[#1a2f66] border border-[#4A6FA5] dark:border-[#ECEFF1] rounded-2xl shadow-lg p-6 transition-transform transform hover:scale-[1.02] hover:shadow-xl cursor-pointer">
-  <div class="flex items-center space-x-4">
-    <div class="flex-shrink-0 bg-[#4A6FA5] dark:bg-white text-white dark:text-[#1a2f66] rounded-full p-3 transition group-hover:rotate-6">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553 2.276A1 1 0 0120 13.118v4.764a1 1 0 01-1.447.894L15 16.118M4 6v12a1 1 0 001.447.894L11 16.118M11 6v10.118M11 6l-5.553 2.276A1 1 0 004 9.118v4.764a1 1 0 001.447.894L11 14.118" />
+  class="group block max-w-md mx-auto p-4 sm:p-8 rounded-3xl shadow-lg transition-transform duration-400 ease-in-out hover:scale-[1.05] hover:shadow-2xl
+         bg-white dark:bg-gradient-to-r dark:from-[#0A1629]/90 dark:via-[#112744]/80 dark:to-[#0A1629]/90
+         border border-transparent dark:border-white/20 cursor-pointer">
+  
+  <div class="flex flex-col sm:flex-row items-center sm:items-center space-y-4 sm:space-y-0 sm:space-x-8">
+    
+    <!-- Icono -->
+    <div class="flex-shrink-0 rounded-full p-4 sm:p-5 shadow-md
+                bg-gradient-to-tr from-[#4A90E2] to-[#357ABD] dark:from-[#60A5FA] dark:to-[#2563EB]
+                text-white
+                transition-transform duration-500 group-hover:scale-110
+                w-16 h-16 sm:w-28 sm:h-28 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 sm:w-12 sm:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h2l3 6 4-8 3 6h2" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M22 14v-4a2 2 0 00-2-2h-4" />
       </svg>
     </div>
-    <div>
-      <h4 class="text-lg font-semibold text-[#0a1f44] dark:text-white">Agendar una llamada</h4>
-      <p class="text-sm text-gray-600 dark:text-gray-300">Haz clic aquí para enviarnos un correo y coordinar una reunión personalizada.</p>
+    
+    <!-- Texto -->
+    <div class="text-center sm:text-left">
+      <h4 class="text-xl sm:text-3xl font-extrabold text-[#0a1f44] dark:text-white leading-snug transition-colors duration-300">Agendar una llamada</h4>
+      <p class="text-gray-600 dark:text-[#CBD5E1] mt-2 sm:mt-4 text-sm sm:text-base leading-relaxed transition-colors duration-300 max-w-xs sm:max-w-none mx-auto sm:mx-0">
+        Haz clic aquí para enviarnos un correo y coordinar una reunión personalizada.
+      </p>
     </div>
+    
   </div>
+  
 </a>
+
+
+
 
   <!-- SCRIPTS -->
   <script>
@@ -322,6 +347,18 @@
       return false;
     }
   </script>
+  <footer class="bg-[#CBD5E1] dark:bg-[#1C2A40] py-8">
+  <div class="container mx-auto px-4 text-center">
+    <div class="text-[#1C2A40] dark:text-[#CBD5E1] mb-4 font-medium">
+      &copy; 2025 Kimstrong. Innovando con pasión, construyendo con calidad.
+    </div>
+    <div class="flex justify-center space-x-6">
+      <a href="#" class="text-[#1C2A40] dark:text-[#CBD5E1] hover:text-[#0F2C66] dark:hover:text-[#ECEFF1] transition-colors duration-300 font-semibold">Inicio</a>
+      <a href="#" class="text-[#1C2A40] dark:text-[#CBD5E1] hover:text-[#0F2C66] dark:hover:text-[#ECEFF1] transition-colors duration-300 font-semibold">Proyectos</a>
+      <a href="#" class="text-[#1C2A40] dark:text-[#CBD5E1] hover:text-[#0F2C66] dark:hover:text-[#ECEFF1] transition-colors duration-300 font-semibold">Contacto</a>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

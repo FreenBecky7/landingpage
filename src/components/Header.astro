@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nayafaye</title>
+  <title>Kimstrong</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     html, body {
@@ -11,6 +11,35 @@
     }
     .backdrop-blur {
       backdrop-filter: blur(10px);
+    }
+    /* Estilo para el menú móvil */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -250px; /* Fuera de la vista */
+      width: 250px;
+      height: 100%;
+      background-color: rgba(225, 229, 234, 0.95);
+      backdrop-filter: blur(10px);
+      transition: left 0.3s ease;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+      z-index: 50;
+    }
+    .mobile-menu.open {
+      left: 0; /* Visible */
+    }
+    .overlay {
+      display: none; /* Oculto por defecto */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 40;
+    }
+    .overlay.show {
+      display: block; /* Mostrar la superposición */
     }
   </style>
 </head>
@@ -45,16 +74,24 @@
           <span id="icon-sun" class="hidden dark:block">☀️</span>
         </button>
       </div>
-
-      <!-- Menú móvil -->
-      <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 py-4 px-4 bg-[#E1E5EA] dark:bg-[#121E2B] rounded-b-lg shadow-md text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1]">
-        <a href="#" class="hover:text-[#4A6FA5] transition">Inicio</a>
-        <a href="#" class="hover:text-[#4A6FA5] transition">Servicios</a>
-        <a href="#" class="hover:text-[#4A6FA5] transition">Proyectos</a>
-        <a href="#" class="hover:text-[#4A6FA5] transition">Contacto</a>
-      </div>
     </div>
   </header>
+
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="flex justify-end p-4">
+      <button id="close-menu" class="text-2xl focus:outline-none">✖</button>
+    </div>
+    <div class="flex flex-col items-center space-y-4 mt-10">
+      <a href="#" class="text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1] hover:text-[#4A6FA5] transition">Inicio</a>
+      <a href="#" class="text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1] hover:text-[#4A6FA5] transition">Servicios</a>
+      <a href="#" class="text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1] hover:text-[#4A6FA5] transition">Proyectos</a>
+      <a href="#" class="text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1] hover:text-[#4A6FA5] transition">Contacto</a>
+    </div>
+  </div>
+
+  <!-- Superposición para el menú móvil -->
+  <div id="overlay" class="overlay"></div>
 
   <!-- Espaciador para evitar que el contenido se superponga al navbar -->
   <div class="h-20"></div>
@@ -64,6 +101,8 @@
     const html = document.documentElement;
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+    const overlay = document.getElementById('overlay');
     const iconMoon = document.getElementById('icon-moon');
     const iconSun = document.getElementById('icon-sun');
 
@@ -90,13 +129,22 @@
       iconSun.classList.toggle('hidden', !isDark);
     }
 
-    // Toggle menú móvil
+    // Abrir menú móvil
     menuToggle.addEventListener('click', () => {
-      if (mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.remove('hidden');
-      } else {
-        mobileMenu.classList.add('hidden');
-      }
+      mobileMenu.classList.add('open');
+      overlay.classList.add('show');
+    });
+
+    // Cerrar menú móvil
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      overlay.classList.remove('show');
+    });
+
+    // Cerrar menú móvil al hacer clic en la superposición
+    overlay.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      overlay.classList.remove('show');
     });
   </script>
 
