@@ -3,16 +3,46 @@ import WorkItem from "./WorkItem.astro";
 import { works } from "../../data/works";
 ---
 
-<section class="bg-gradient-to-b from-[#E1E5EA] to-[#F4F6F8] dark:from-[#121E2B] dark:via-[#0B0F1A] dark:to-[#0B0F1A] py-12 px-4 transition-colors duration-300 rounded-xl">
-  <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-    {
-      works.map(({ id, image, name, description, url }) => {
-        return (
-          <li>
-            <WorkItem id={id} image={image} name={name} description={description} url={url} />
-          </li>
-        );
-      })
-    }
+<section
+  id="works-list"
+  class="bg-gradient-to-b from-[#E1E5EA] to-[#F4F6F8] dark:from-[#121e2B] dark:via-[#0B0F1A] dark:to-[#0B0F1A] py-12 px-4 transition-colors duration-300 rounded-xl max-w-7xl mx-auto"
+>
+  <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {works.map((work) => (
+      <WorkItem
+        key={work.id}
+        id={work.id}
+        image={work.image}
+        name={work.name}
+        description={work.description}
+        author={work.author}
+        year={work.year}
+        tech={work.tech}
+        highlights={work.highlights}
+      />
+    ))}
   </ul>
+
+  <script is:inline>
+    document.getElementById('works-list').addEventListener('click', (e) => {
+      const target = e.target;
+      if (target.classList.contains('toggle-btn')) {
+        const id = target.getAttribute('data-id');
+        if (!id) return;
+        const details = document.getElementById(`details-${id}`);
+        if (!details) return;
+
+        const isHidden = details.classList.contains('hidden');
+        if (isHidden) {
+          details.classList.remove('hidden');
+          target.textContent = 'Ver menos';
+          target.setAttribute('aria-expanded', 'true');
+        } else {
+          details.classList.add('hidden');
+          target.textContent = 'Ver más';
+          target.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  </script>
 </section>

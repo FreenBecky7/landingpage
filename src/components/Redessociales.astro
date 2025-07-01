@@ -59,10 +59,29 @@
       <!-- Correo -->
       <div class="text-center">
         <p class="text-lg text-gray-700 dark:text-gray-300 mb-2">¿Prefieres escribirnos?</p>
-        <a href="mailto:contacto@srchfreenbeck.com"
-           class="font-semibold text-lg text-[#0B0F1A] dark:text-[#CBD5E1] hover:underline transition duration-200">
-          srchfreenbeck@gmail.com
-        </a>
+        <a id="contact-email"
+   class="font-semibold text-lg text-[#0B0F1A] dark:text-[#CBD5E1] hover:underline transition duration-200"
+   href="#">
+  srchfreenbeck@gmail.com
+</a>
+
+<script is:inline>
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  const mailLink = document.getElementById('contact-email');
+  const email = "srchfreenbeck@gmail.com";
+  const subject = "Contacto desde la web";
+  const body = "Hola, quiero más información sobre sus servicios.";
+
+  if (isMobile) {
+    // En móviles, usar mailto (abre app de correo)
+    mailLink.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  } else {
+    // En escritorio, usar Gmail Web
+    mailLink.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+</script>
+
       </div>
     </div>
   </section>

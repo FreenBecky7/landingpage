@@ -1,53 +1,77 @@
-// data/works.ts o works.js
 export const works = [
   {
     id: "library-assistant",
     image: "/img/library_assistant.png",
     name: "Library Assistant",
     description: "Sistema para el Control de Asistencia de la Biblioteca dentro de la UTZAC.",
+    url: "http://library.com/",
     author: "Nelyda Yeray Mc",
     year: 2024,
-    tech: "HTML, Tailwind, JS",
-    highlights: "Optimiza la gestión académica con reportes en tiempo real."
+    tech: ["Astro", "Tailwind", "CouchDB"],
+    highlights: [
+      "Integración con sistema de control escolar",
+      "Exportación de reportes en PDF",
+      "Panel de administrador"
+    ]
   },
   {
-    id: "la-cafe",
+    id: "app-cafeteria",
     image: "/img/Cfe.png",
     name: "LaCafe",
-    description: "Plataforma moderna para gestionar pedidos en cafeterías. Optimiza la atención con pedidos en tiempo real desde dispositivos móviles.",
+    description: "Plataforma digital para gestionar pedidos de comida en LaCafe de manera rápida y eficiente.",
+    url: "",
     author: "Nelyda Yeray Mc",
     year: 2024,
-    tech: "Vue, Firebase, Tailwind",
-    highlights: "Notificaciones en tiempo real para pedidos eficientes."
+    tech: ["Angular", "Firebase"],
+    highlights: [
+      "Pedidos en tiempo real",
+      "Notificaciones al personal",
+      "Panel de control para cocina"
+    ]
   },
   {
     id: "brain-trap",
     image: "/img/Btrap.png",
     name: "Brain Trap",
-    description: "Juego para PC donde controlas a un zombi que recolecta cerebros mientras esquiva a los enemigos.",
+    description: "Juego para PC donde controlas a un zombi que recolecta cerebros mientras esquiva a los enemigos. ¡Un solo toque y pierdes!.",
+    url: "",
     author: "Nelyda Yeray Mc",
     year: 2024,
-    tech: "Godot Engine",
-    highlights: "Un solo toque y pierdes. Ideal para sesiones rápidas."
+    tech: ["Godot Engine"],
+    highlights: [
+      "Jugabilidad desafiante",
+      "Diseño de niveles personalizados",
+      "Estilo visual retro"
+    ]
   },
   {
     id: "homework-list",
     image: "/img/list.png",
-    name: "Homework List",
-    description: "Plataforma web para organizar tus tareas con sincronización en la nube.",
+    name: "Homework list",
+    description: "Plataforma web para organizar tus tareas de forma eficiente, con sincronización en la nube para acceder a tu información desde cualquier lugar.",
+    url: "",
     author: "Nelyda Yeray Mc",
     year: 2024,
-    tech: "React, Supabase",
-    highlights: "Acceso multiplataforma con historial de cambios."
+    tech: ["React", "MongoDB", "Express"],
+    highlights: [
+      "Sistema de tareas personalizadas",
+      "Recordatorios automáticos",
+      "Sincronización en la nube"
+    ]
   },
   {
-    id: "sat-tracker",
+    id: "rastreo-satelital",
     image: "/img/sat2.png",
-    name: "Rastreador de Satélites",
-    description: "App móvil para rastrear satélites en tiempo real con una interfaz intuitiva.",
+    name: "Rastreador de sátelites",
+    description: "App móvil para rastrear satélites en tiempo real con una interfaz intuitiva. Disponible para Android e iOS.",
+    url: "",
     author: "Nelyda Yeray Mc",
     year: 2024,
-    tech: "Flutter, Google Maps API",
-    highlights: "Disponible para Android e iOS. Visualización de trayectorias."
-  },
+    tech: ["Flutter", "REST API"],
+    highlights: [
+      "Mapas interactivos",
+      "Alertas personalizadas",
+      "Visualización en tiempo real"
+    ]
+  }
 ];

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios de Programación</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
             <li class="py-1">- Integración con redes sociales</li>
           </ul>
           <p class="font-semibold text-[#0f2c66] dark:text-[#8FB0DA]">Precio: $4,800 - $7,000 MXN</p>
-          <a href="#contact" class="text-[#133D93] dark:text-[#8FB0DA] font-semibold hover:underline mt-2 inline-block">Aprende más</a>
+          <button onclick="mostrarModal('modal-basico')" class="learn-more-button text-[#133D93] dark:text-[#8FB0DA] font-semibold hover:underline mt-2 inline-block">Aprende más</button>
         </div>
 
         <!-- Paquete Intermedio -->
@@ -45,7 +45,7 @@
             <li class="py-1">- Integración con APIs externas</li>
           </ul>
           <p class="font-semibold text-[#0f2c66] dark:text-[#8FB0DA]">Precio: $8,800 - $20,000 MXN</p>
-          <a href="#contact" class="text-[#133D93] dark:text-[#8FB0DA] font-semibold hover:underline mt-2 inline-block">Aprende más</a>
+          <button onclick="mostrarModal('modal-intermedio')" class="learn-more-button text-[#133D93] dark:text-[#8FB0DA] font-semibold hover:underline mt-2 inline-block">Aprende más</button>
         </div>
 
         <!-- Paquete Avanzado -->
@@ -62,12 +62,71 @@
             <li class="py-1">- Optimización avanzada de SEO</li>
           </ul>
           <p class="font-semibold text-[#0f2c66] dark:text-[#8FB0DA]">Precio: Desde $20,000 MXN</p>
-          <a href="#contact" class="text-[#133D93] dark:text-[#8FB0DA] font-semibold hover:underline mt-2 inline-block">Aprende más</a>
+          <button onclick="mostrarModal('modal-avanzado')" class="learn-more-button text-[#133D93] dark:text-[#8FB0DA] font-semibold hover:underline mt-2 inline-block">Aprende más</button>
         </div>
 
       </div>
     </div>
   </section>
+
+  <!-- Modales -->
+  <div id="modal-basico" class="hidden fixed inset-0 bg-black bg-opacity-50 items-center justify-center">
+    <div class="bg-white dark:bg-[#1C2A40] p-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-semibold mb-4">Detalles del Paquete Básico</h3>
+      <p>Este paquete incluye el desarrollo de páginas web sencillas, con un enfoque en la usabilidad y la optimización básica para motores de búsqueda.</p>
+      <ul class="mt-4">
+        <li>- Hasta 5 secciones</li>
+        <li>- Diseño responsivo</li>
+        <li>- SEO básico</li>
+        <li>- Integración con redes sociales</li>
+      </ul>
+      <button onclick="cerrarModal('modal-basico')" class="mt-4 bg-[#133D93] text-white rounded px-4 py-2">Cerrar</button>
+    </div>
+  </div>
+
+  <div id="modal-intermedio" class="hidden fixed inset-0 bg-black bg-opacity-50 items-center justify-center">
+    <div class="bg-white dark:bg-[#1C2A40] p-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-semibold mb-4">Detalles del Paquete Intermedio</h3>
+      <p>Este paquete incluye páginas web interactivas, con funcionalidades como formularios, chat en vivo y animaciones personalizadas.</p>
+      <ul class="mt-4">
+        <li>- Todo lo del Paquete Básico</li>
+        <li>- Funcionalidades interactivas</li>
+        <li>- Animaciones personalizadas</li>
+        <li>- Integración con APIs externas</li>
+      </ul>
+      <button onclick="cerrarModal('modal-intermedio')" class="mt-4 bg-[#133D93] text-white rounded px-4 py-2">Cerrar</button>
+    </div>
+  </div>
+
+  <div id="modal-avanzado" class="hidden fixed inset-0 bg-black bg-opacity-50 items-center justify-center">
+    <div class="bg-white dark:bg-[#1C2A40] p-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-semibold mb-4">Detalles del Paquete Avanzado</h3>
+      <p>Este paquete ofrece un desarrollo personalizado con base de datos, autenticación de usuarios y optimización avanzada para SEO.</p>
+      <ul class="mt-4">
+        <li>- Todo lo del Paquete Intermedio</li>
+        <li>- Desarrollo personalizado</li>
+        <li>- Base de datos</li>
+        <li>- Autenticación de usuarios</li>
+        <li>- Optimización avanzada de SEO</li>
+      </ul>
+      <button onclick="cerrarModal('modal-avanzado')" class="mt-4 bg-[#133D93] text-white rounded px-4 py-2">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Script para manejar los modales -->
+  <script>
+    function mostrarModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function cerrarModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  </script>
 
 </body>
 </html>

@@ -1,48 +1,52 @@
 ---
 export interface Props {
-  id: string
-  image: string
-  name: string
-  description: string
-  author: string
-  year: number
-  tech: string
-  highlights: string
+  id: string;
+  image: string;
+  name: string;
+  description: string;
+  author: string;
+  year: number;
+  tech: string[];
+  highlights: string[];
 }
-
-const { id, image, name, description, author, year, tech, highlights } = Astro.props
+const { id, image, name, description, author, year, tech, highlights } = Astro.props;
 ---
 
-<section class="relative">
-  <div class="bg-white dark:bg-[#1a273a] rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-    <img src={image} alt={name} class="w-full h-48 object-cover rounded-t-xl" />
-    <div class="p-5">
-      <h4 class="text-xl font-semibold text-[#0a1f44] dark:text-white">{name}</h4>
-      <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">{description}</p>
+<li class="work-item border rounded-lg shadow-lg bg-white dark:bg-[#121e2b] text-[#0B0F1A] dark:text-white max-w-md mx-auto">
+  <img src={image} alt={name} class="w-full h-48 object-cover rounded-t-lg" />
+  <div class="p-6">
+    <h3 class="text-2xl font-semibold mb-2">{name}</h3>
+    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{description}</p>
 
+    <div class="text-center">
       <button
-        class="mt-4 inline-block px-4 py-2 bg-[#4A6FA5] text-white rounded-lg hover:bg-[#3b5d8f] transition text-sm font-medium"
-        onclick={`document.getElementById('${id}-modal').showModal()`}
+        data-id={id}
+        class="toggle-btn inline-block bg-[#4A6FA5] text-white px-4 py-2 rounded-md hover:bg-[#36587f] transition"
+        aria-expanded="false"
+        aria-controls={`details-${id}`}
+        type="button"
       >
         Ver más
       </button>
     </div>
-  </div>
 
-  <!-- Modal -->
-  <dialog id={`${id}-modal`} class="rounded-xl w-full max-w-xl bg-white dark:bg-[#0B0F1A] p-6 shadow-2xl">
-    <form method="dialog" class="text-right">
-      <button class="text-sm text-[#4A6FA5] dark:text-[#60a5fa] hover:underline">Cerrar ✕</button>
-    </form>
-    <div class="mt-2">
-      <h2 class="text-2xl font-bold text-[#0a1f44] dark:text-white">{name}</h2>
-      <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">{description}</p>
-      <ul class="text-sm mt-4 space-y-1">
-        <li><strong class="text-[#1e3a8a] dark:text-[#60a5fa]">Autor:</strong> {author}</li>
-        <li><strong class="text-[#1e3a8a] dark:text-[#60a5fa]">Año:</strong> {year}</li>
-        <li><strong class="text-[#1e3a8a] dark:text-[#60a5fa]">Tecnologías:</strong> {tech}</li>
-        <li><strong class="text-[#1e3a8a] dark:text-[#60a5fa]">Destacado:</strong> {highlights}</li>
+    <div
+      id={`details-${id}`}
+      class="mt-4 border-t border-gray-300 dark:border-gray-700 pt-4 text-left text-sm hidden"
+    >
+      <ul class="space-y-1">
+        <li><strong>Autor:</strong> {author}</li>
+        <li><strong>Año:</strong> {year}</li>
+        <li><strong>Tecnologías:</strong> {tech.join(", ")}</li>
+        <li>
+          <strong>Destacado:</strong>
+          <ul class="list-disc list-inside ml-4 mt-1">
+            {highlights.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </li>
       </ul>
     </div>
-  </dialog>
-</section>
+  </div>
+</li>
