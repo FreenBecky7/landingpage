@@ -243,9 +243,11 @@
 <!-- Sección del Proyecto -->
 <div class="max-w-3xl mx-auto text-center bg-white dark:bg-[#0a1f44] shadow-lg rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12">
   <!-- Título -->
-  <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0a1f44] dark:text-white mb-3 sm:mb-4">
-    🎮 Videojuego en Godot
-  </h2>
+<h2 class="text-4xl sm:text-5xl font-extrabold text-center text-[#0a1f44] dark:text-white mb-16 animate__animated animate__fadeInDown">
+  🎮 Videojuego en Godot
+</h2>
+
+
 
   <!-- Nombre -->
   <p class="text-lg sm:text-xl md:text-2xl font-semibold text-[#1a365d] dark:text-gray-200 mb-2">
@@ -485,10 +487,11 @@
 
 
 
-<!-- Mascota flotante profesional y responsive -->
-<div id="mascota" class="fixed bottom-6 right-6 w-16 h-16 z-50 cursor-pointer transition-transform duration-300 hover:scale-110">
+
+<!-- Mascota flotante -->
+<div id="mascota" class="fixed bottom-8 right-8 w-16 h-17 z-50 cursor-pointer transition-transform duration-300 hover:scale-110">
   <img src="/img/mascota.png" alt="Asistente web" class="w-full h-full rounded-full shadow-xl object-cover" />
-  <div id="mascota-bubble" class="absolute bottom-full right-1/2 translate-x-1/2 mb-2 px-3 py-2 bg-white/95 dark:bg-[#1A1F2C]/95 text-[#1A1A1A] dark:text-[#ECEFF1] rounded-xl shadow-lg text-xs sm:text-sm max-w-[180px] text-center backdrop-blur-sm opacity-0 transition-all duration-300">
+  <div id="mascota-bubble" class="absolute bottom-full right-1/2 translate-x-1/2 mb-2 px-3 py-2 bg-white/95 dark:bg-[#1A1F2C]/95 text-[#1A1A1A] dark:text-[#ECEFF1] rounded-xl shadow-lg text-xs sm:text-sm max-w-[200px] text-center backdrop-blur-sm opacity-0 transition-all duration-300">
     Bienvenido!
   </div>
 </div>
@@ -496,25 +499,28 @@
 <script>
 const bubble = document.getElementById("mascota-bubble");
 
-// Mensajes cortos y claros para cada sección
 const mensajes = {
   default: "¡Hola! 😻 Explora mi web.",
-  servicios: "Servicios: Web, Apps, Marketing y Juegos 🎯",
-  proyectos: "Proyectos destacados 🚀",
-  videojuegos: "🎮 Brain Trap: recolecta cerebros y esquiva enemigos.",
-  proceso: "Mi proceso de trabajo: Idea, Planificación, Desarrollo y Entrega ⚡",
-  blog: "Tips y recursos para mejorar tu web 📚",
-  experiencia: "Nuestra experiencia: +3 años, +20 proyectos, +20 clientes felices 👏",
-  contacto: "Agenda tu cita 📝 rápidamente",
-  final: "¡Llegaste al final de la página! Gracias por visitar 👏"
+  servicios: "Servicios 🎯",
+  proyectos: "Proyectos 🚀",
+  videojuegos: "🎮 Brain Trap",
+  proceso: "Idea → Plan → Desarrollo ⚡",
+  blog: "Tips para tu web 📚",
+  experiencia: "+20 proyectos 👏",
+  contacto: "Agenda tu cita 📝",
+  final: `
+    <div class="flex flex-col items-center gap-1">
+      <span class="text-sm font-medium">¿Volver a la página principal?</span>
+      <a href="/" class="mt-1 px-3 py-1 text-xs bg-gradient-to-r from-indigo-500 to-blue-600 text-white rounded-full shadow hover:from-blue-600 hover:to-indigo-500 transition">
+        Click aquí
+      </a>
+    </div>`
 };
 
-// Función para actualizar mensaje según la sección visible o si llegamos al final
 function actualizarMensaje() {
   const secciones = document.querySelectorAll("section[id]");
   let mensajeActual = mensajes.default;
 
-  // Detectar sección visible
   secciones.forEach(sec => {
     const rect = sec.getBoundingClientRect();
     if(rect.top <= window.innerHeight/2 && rect.bottom >= window.innerHeight/2){
@@ -522,27 +528,22 @@ function actualizarMensaje() {
     }
   });
 
-  // Detectar si llegamos al final del documento
   const scrollPosition = window.scrollY + window.innerHeight;
   const pageHeight = document.documentElement.scrollHeight;
-  if(scrollPosition >= pageHeight - 50){ // 50px de margen
+  if(scrollPosition >= pageHeight - 50){
     mensajeActual = mensajes.final;
   }
 
-  // Actualizar burbuja solo si cambió
-  if(bubble.textContent !== mensajeActual){
+  if(bubble.innerHTML !== mensajeActual){
     bubble.style.opacity = 0;
     setTimeout(() => {
-      bubble.textContent = mensajeActual;
+      bubble.innerHTML = mensajeActual;
       bubble.style.opacity = 1;
     }, 150);
   }
 }
 
-// Mostrar burbuja siempre
 bubble.style.opacity = 1;
-
-// Actualizar mensaje al cargar, hacer scroll o redimensionar
 window.addEventListener("scroll", actualizarMensaje);
 window.addEventListener("load", actualizarMensaje);
 window.addEventListener("resize", actualizarMensaje);

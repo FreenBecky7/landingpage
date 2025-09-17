@@ -4,129 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios de Programación</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-[#F4F6F8] dark:bg-[#0B0F1A] text-black dark:text-white">
 
   <!-- Sección de Paquetes -->
-  <section id="paquetes" class="p-8 bg-gradient-to-b from-[#F4F6F8] via-[#CBD5E1] to-[#F4F6F8] dark:from-[#0B0F1A] dark:via-[#1C2A40] dark:to-[#0B0F1A]">
+  <section id="paquetes" class="p-8">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-8 text-center text-[#0f2c66] dark:text-[#CBD5E1]">
+      <h3 class="text-3xl mb-8 text-black dark:text-white text-center font-extrabold tracking-wide">
         Nuestros Paquetes de Programación
-      </h2>
+      </h3>
+
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <!-- Paquete Básico -->
         <div class="bg-white dark:bg-[#1C2A40] p-6 rounded-lg shadow-2xl border dark:border-[#2D3A55] transition-transform transform hover:-translate-y-2">
-          <h3 class="text-xl font-semibold mb-4 text-[#133D93] dark:text-white">Paquete Básico</h3>
-          <p class="text-gray-700 dark:text-[#CBD5E1] mb-4">
-            Desarrollamos páginas web sencillas con un máximo de 5 secciones, diseño responsivo y optimización básica para SEO.
+          <h3 class="text-xl font-semibold mb-4 text-black dark:text-white">Paquete Básico</h3>
+          <p class="mb-4 text-black dark:text-[#CBD5E1]">
+            Perfecto para quienes quieren su primera página web. Diseño responsivo y SEO básico.
           </p>
-          <ul class="text-gray-700 dark:text-[#B0BEC5] mb-4">
-            <li class="py-1 border-b border-gray-300 dark:border-[#2D3A55]">- Hasta 5 secciones</li>
-            <li class="py-1 border-b border-gray-300 dark:border-[#2D3A55]">- Diseño responsivo</li>
-            <li class="py-1 border-b border-gray-300 dark:border-[#2D3A55]">- SEO básico</li>
-            <li class="py-1">- Integración con redes sociales</li>
+          <ul class="list-disc pl-6 mb-4 text-black dark:text-[#B0BEC5]">
+            <li>Hasta 5 secciones</li>
+            <li>Diseño adaptable a móviles</li>
+            <li>SEO básico para buscadores</li>
+            <li>Integración con redes sociales</li>
           </ul>
-          <p class="font-semibold text-[#0f2c66] dark:text-[#8FB0DA]">Precio: $4,800 - $7,000 MXN</p>
-          <button onclick="mostrarModal('modal-basico')" class="learn-more-button text-[#133D93] dark:text-[#8FB0DA] font-semibold hover:underline mt-2 inline-block">Aprende más</button>
+          <p class="font-semibold text-black dark:text-[#8FB0DA]">Precio: $4,800 - $7,000 MXN</p>
         </div>
 
         <!-- Paquete Intermedio -->
         <div class="bg-white dark:bg-[#1C2A40] p-6 rounded-lg shadow-2xl border dark:border-[#2D3A55] transition-transform transform hover:-translate-y-2">
-          <h3 class="text-xl font-semibold mb-4 text-[#133D93] dark:text-white">Paquete Intermedio</h3>
-          <p class="text-gray-700 dark:text-[#CBD5E1] mb-4">
-            Incluye páginas web interactivas con funciones como formularios y chat en vivo, además de animaciones personalizadas.
+          <h3 class="text-xl font-semibold mb-4 text-black dark:text-white">Paquete Intermedio</h3>
+          <p class="mb-4 text-black dark:text-[#CBD5E1]">
+            Ideal para negocios que quieren interactuar con sus clientes. Incluye animaciones y formularios.
           </p>
-          <ul class="text-gray-700 dark:text-[#B0BEC5] mb-4">
-            <li class="py-1 border-b border-gray-300 dark:border-[#2D3A55]">- Todo lo del Paquete Básico</li>
-            <li class="py-1 border-b border-gray-300 dark:border-[#2D3A55]">- Funcionalidades interactivas</li>
-            <li class="py-1 border-b border-gray-300 dark:border-[#2D3A55]">- Animaciones personalizadas</li>
-            <li class="py-1">- Integración con APIs externas</li>
+          <ul class="list-disc pl-6 mb-4 text-black dark:text-[#B0BEC5]">
+            <li>Todo lo del Paquete Básico</li>
+            <li>Formularios y chat en vivo</li>
+            <li>Animaciones personalizadas</li>
+            <li>Integración con APIs externas</li>
           </ul>
-          <p class="font-semibold text-[#0f2c66] dark:text-[#8FB0DA]">Precio: $8,800 - $20,000 MXN</p>
-          <button onclick="mostrarModal('modal-intermedio')" class="learn-more-button text-[#133D93] dark:text-[#8FB0DA] font-semibold hover:underline mt-2 inline-block">Aprende más</button>
+          <p class="font-semibold text-black dark:text-[#8FB0DA]">Precio: $8,800 - $20,000 MXN</p>
         </div>
 
         <!-- Paquete Avanzado -->
         <div class="bg-white dark:bg-[#1C2A40] p-6 rounded-lg shadow-2xl border dark:border-[#2D3A55] transition-transform transform hover:-translate-y-2">
-          <h3 class="text-xl font-semibold mb-4 text-[#133D93] dark:text-white">Paquete Avanzado</h3>
-          <p class="text-gray-700 dark:text-[#CBD5E1] mb-4">
-            Desarrollo personalizado con base de datos, autenticación de usuarios y optimización avanzada para SEO.
+          <h3 class="text-xl font-semibold mb-4 text-black dark:text-white">Paquete Avanzado</h3>
+          <p class="mb-4 text-black dark:text-[#CBD5E1]">
+            Para proyectos profesionales que requieren funcionalidades complejas y seguridad avanzada.
           </p>
-          <ul class="text-gray-700 dark:text-[#B0BEC5] mb-4">
-            <li class="py-1 border-b border-gray-300 dark:border-[#2D3A55]">- Todo lo del Paquete Intermedio</li>
-            <li class="py-1 border-b border-gray-300 dark:border-[#2D3A55]">- Desarrollo personalizado</li>
-            <li class="py-1 border-b border-gray-300 dark:border-[#2D3A55]">- Base de datos</li>
-            <li class="py-1 border-b border-gray-300 dark:border-[#2D3A55]">- Autenticación de usuarios</li>
-            <li class="py-1">- Optimización avanzada de SEO</li>
+          <ul class="list-disc pl-6 mb-4 text-black dark:text-[#B0BEC5]">
+            <li>Todo lo del Paquete Intermedio</li>
+            <li>Desarrollo web personalizado</li>
+            <li>Base de datos y autenticación de usuarios</li>
+            <li>SEO avanzado</li>
           </ul>
-          <p class="font-semibold text-[#0f2c66] dark:text-[#8FB0DA]">Precio: Desde $20,000 MXN</p>
-          <button onclick="mostrarModal('modal-avanzado')" class="learn-more-button text-[#133D93] dark:text-[#8FB0DA] font-semibold hover:underline mt-2 inline-block">Aprende más</button>
+          <p class="font-semibold text-black dark:text-[#8FB0DA]">Precio: Desde $20,000 MXN</p>
         </div>
 
       </div>
     </div>
   </section>
-
-  <!-- Modales -->
-  <div id="modal-basico" class="hidden fixed inset-0 bg-black bg-opacity-50 items-center justify-center">
-    <div class="bg-white dark:bg-[#1C2A40] p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold mb-4">Detalles del Paquete Básico</h3>
-      <p>Este paquete incluye el desarrollo de páginas web sencillas, con un enfoque en la usabilidad y la optimización básica para motores de búsqueda.</p>
-      <ul class="mt-4">
-        <li>- Hasta 5 secciones</li>
-        <li>- Diseño responsivo</li>
-        <li>- SEO básico</li>
-        <li>- Integración con redes sociales</li>
-      </ul>
-      <button onclick="cerrarModal('modal-basico')" class="mt-4 bg-[#133D93] text-white rounded px-4 py-2">Cerrar</button>
-    </div>
-  </div>
-
-  <div id="modal-intermedio" class="hidden fixed inset-0 bg-black bg-opacity-50 items-center justify-center">
-    <div class="bg-white dark:bg-[#1C2A40] p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold mb-4">Detalles del Paquete Intermedio</h3>
-      <p>Este paquete incluye páginas web interactivas, con funcionalidades como formularios, chat en vivo y animaciones personalizadas.</p>
-      <ul class="mt-4">
-        <li>- Todo lo del Paquete Básico</li>
-        <li>- Funcionalidades interactivas</li>
-        <li>- Animaciones personalizadas</li>
-        <li>- Integración con APIs externas</li>
-      </ul>
-      <button onclick="cerrarModal('modal-intermedio')" class="mt-4 bg-[#133D93] text-white rounded px-4 py-2">Cerrar</button>
-    </div>
-  </div>
-
-  <div id="modal-avanzado" class="hidden fixed inset-0 bg-black bg-opacity-50 items-center justify-center">
-    <div class="bg-white dark:bg-[#1C2A40] p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold mb-4">Detalles del Paquete Avanzado</h3>
-      <p>Este paquete ofrece un desarrollo personalizado con base de datos, autenticación de usuarios y optimización avanzada para SEO.</p>
-      <ul class="mt-4">
-        <li>- Todo lo del Paquete Intermedio</li>
-        <li>- Desarrollo personalizado</li>
-        <li>- Base de datos</li>
-        <li>- Autenticación de usuarios</li>
-        <li>- Optimización avanzada de SEO</li>
-      </ul>
-      <button onclick="cerrarModal('modal-avanzado')" class="mt-4 bg-[#133D93] text-white rounded px-4 py-2">Cerrar</button>
-    </div>
-  </div>
-
-  <!-- Script para manejar los modales -->
-  <script>
-    function mostrarModal(id) {
-      const modal = document.getElementById(id);
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-
-    function cerrarModal(id) {
-      const modal = document.getElementById(id);
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-  </script>
 
 </body>
 </html>
