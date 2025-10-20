@@ -80,28 +80,21 @@
           <a href="#redessociales" class="hover:text-[#4A6FA5] transition">Contacto</a>
         </nav>
 
-        <!-- Botón modo oscuro -->
-        <button id="toggleDark" class="ml-4 text-xl p-2 rounded-full hover:bg-[#E1E5EA] dark:hover:bg-[#1A3B71] transition" aria-label="Cambiar tema">
+            <button id="toggleDark" class="ml-4 text-xl p-2 rounded-full hover:bg-[#E1E5EA] dark:hover:bg-[#1A3B71] transition" aria-label="Cambiar tema">
         <span id="icon-moon">🌙</span>
         <span id="icon-sun" class="hidden">☀️</span>
       </button>
     </div>
+
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 bg-[#E1E5EA]/90 dark:bg-[#121E2B]/90 p-4 rounded-b-lg text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1]">
+      <a href="/" class="hover:text-[#4A6FA5] transition">Inicio</a>
+      <a href="#proyectos" class="hover:text-[#4A6FA5] transition">Proyectos</a>
+      <a href="#videojuegos" class="hover:text-[#4A6FA5] transition">Videojuegos</a>
+         <a href="#proceso" class="hover:text-[#4A6FA5] transition">Procesos</a>
+      <a href="#contacto" class="hover:text-[#4A6FA5] transition">Contacto</a>
     </div>
   </header>
-
-  <!-- Menú móvil -->
-  <div id="mobile-menu" class="mobile-menu">
-    <div class="flex justify-end p-4">
-      <button id="close-menu" class="text-2xl focus:outline-none">✖</button>
-    </div>
-    <div class="flex flex-col items-center space-y-4 mt-10">
-      <a href="/" class="text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1] hover:text-[#4A6FA5] transition">Inicio</a>
-      <a href="/mas-informacion" class="text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1] hover:text-[#4A6FA5] transition">Servicios</a>
-      <a href="#proyects" class="text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1] hover:text-[#4A6FA5] transition">Proyectos</a>
-       <a href="#paquetes" class="text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1] hover:text-[#4A6FA5] transition">Paquetes</a>
-      <a href="#redessociales" class="text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1] hover:text-[#4A6FA5] transition">Contacto</a>
-    </div>
-  </div>
 
   <!-- Superposición para el menú móvil -->
   <div id="overlay" class="overlay"></div>
