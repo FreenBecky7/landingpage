@@ -9,37 +9,42 @@
     html, body {
       transition: background-color 0.3s, color 0.3s;
     }
+
     .backdrop-blur {
       backdrop-filter: blur(10px);
     }
-    /* Estilo para el menú móvil */
+
+    /* Menú móvil */
     .mobile-menu {
       position: fixed;
       top: 0;
-      left: -250px; /* Fuera de la vista */
+      left: -250px;
       width: 250px;
       height: 100%;
       background-color: rgba(225, 229, 234, 0.95);
       backdrop-filter: blur(10px);
       transition: left 0.3s ease;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 2px 0 10px rgba(0,0,0,0.2);
       z-index: 50;
     }
+
     .mobile-menu.open {
-      left: 0; /* Visible */
-    }
-    .overlay {
-      display: none; /* Oculto por defecto */
-      position: fixed;
-      top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background-color: rgba(0,0,0,0.5);
       z-index: 40;
     }
+
     .overlay.show {
-      display: block; /* Mostrar la superposición */
+      display: block;
     }
   </style>
 </head>
@@ -50,56 +55,58 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
 
-       <!-- 🌈 LOGO Kimstrong -->
-<a href="/" class="flex items-center justify-center gap-1 sm:gap-2 group">
-  <img 
-    src="/img/21.png" 
-    alt="Logo Kimstrong" 
-    class="w-24 h-28 sm:w-30 sm:h-30 object-contain transition-transform duration-300 group-hover:scale-105" 
-  />
-  <span 
-    class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-[#a515a5] to-[#62e0ff] bg-clip-text text-transparent tracking-wide select-none"
-  >
-    Kim<strong>strong</strong>
-  </span>
-</a>
+        <!-- LOGO -->
+        <a href="/" class="flex items-center gap-1 sm:gap-2 group">
+          <img 
+            src="/img/21.png" 
+            alt="Logo Kimstrong" 
+            class="w-24 h-28 sm:w-32 sm:h-32 object-contain transition-transform duration-300 group-hover:scale-105" 
+          />
+          <span 
+            class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-[#a515a5] to-[#62e0ff] bg-clip-text text-transparent tracking-wide select-none"
+          >
+            Kim<strong>strong</strong>
+          </span>
+        </a>
 
+        <!-- Menú principal (desktop) -->
+        <nav id="main-nav" class="hidden md:flex gap-8 items-center text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1]">
+          <a href="/" class="hover:text-[#4A6FA5] transition">Inicio</a>
+          <a href="/mas-informacion" class="hover:text-[#4A6FA5] transition">Servicios</a>
+          <a href="#projects" class="hover:text-[#4A6FA5] transition">Proyectos</a>
+          <a href="#paquetes" class="hover:text-[#4A6FA5] transition">Paquetes</a>
+          <a href="#redessociales" class="hover:text-[#4A6FA5] transition">Contacto</a>
+        </nav>
 
+        <!-- Botón modo oscuro -->
+        <button id="toggleDark" class="ml-4 text-xl p-2 rounded-full hover:bg-[#E1E5EA] dark:hover:bg-[#1A3B71] transition" aria-label="Cambiar tema">
+          <span id="icon-moon">🌙</span>
+          <span id="icon-sun" class="hidden">☀️</span>
+        </button>
 
         <!-- Botón hamburguesa móvil -->
         <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
           ☰
         </button>
 
-        <!-- Menú principal -->
-        <nav id="main-nav" class="hidden md:flex gap-8 items-center text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1]">
-          <a href="/" class="hover:text-[#4A6FA5] transition">Inicio</a>
-          <a href="/mas-informacion" class="hover:text-[#4A6FA5] transition">Servicios</a>
-          <a href="#projects" class="hover:text-[#4A6FA5] transition">Proyectos</a>
-           <a href="#paquetes" class="text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1] hover:text-[#4A6FA5] transition">Paquetes</a>
-          <a href="#redessociales" class="hover:text-[#4A6FA5] transition">Contacto</a>
-        </nav>
-
-            <button id="toggleDark" class="ml-4 text-xl p-2 rounded-full hover:bg-[#E1E5EA] dark:hover:bg-[#1A3B71] transition" aria-label="Cambiar tema">
-        <span id="icon-moon">🌙</span>
-        <span id="icon-sun" class="hidden">☀️</span>
-      </button>
+      </div>
     </div>
 
     <!-- Menú móvil -->
-    <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 bg-[#E1E5EA]/90 dark:bg-[#121E2B]/90 p-4 rounded-b-lg text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1]">
+    <div id="mobile-menu" class="mobile-menu md:hidden flex-col space-y-4 p-4 rounded-b-lg text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1]">
+      <button id="close-menu" class="self-end text-2xl focus:outline-none mb-2">✖</button>
       <a href="/" class="hover:text-[#4A6FA5] transition">Inicio</a>
       <a href="#proyectos" class="hover:text-[#4A6FA5] transition">Proyectos</a>
       <a href="#videojuegos" class="hover:text-[#4A6FA5] transition">Videojuegos</a>
-         <a href="#proceso" class="hover:text-[#4A6FA5] transition">Procesos</a>
+      <a href="#proceso" class="hover:text-[#4A6FA5] transition">Procesos</a>
       <a href="#contacto" class="hover:text-[#4A6FA5] transition">Contacto</a>
     </div>
   </header>
 
-  <!-- Superposición para el menú móvil -->
+  <!-- Superposición para menú móvil -->
   <div id="overlay" class="overlay"></div>
 
-  <!-- Espaciador para evitar que el contenido se superponga al navbar -->
+  <!-- Espaciador para contenido -->
   <div class="h-20"></div>
 
   <script>
@@ -128,26 +135,23 @@
       updateIcons();
     });
 
-    // Mostrar icono correcto
     function updateIcons() {
       const isDark = html.classList.contains('dark');
       iconMoon.classList.toggle('hidden', isDark);
       iconSun.classList.toggle('hidden', !isDark);
     }
 
-    // Abrir menú móvil
+    // Menú móvil
     menuToggle.addEventListener('click', () => {
       mobileMenu.classList.add('open');
       overlay.classList.add('show');
     });
 
-    // Cerrar menú móvil
     closeMenu.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
       overlay.classList.remove('show');
     });
 
-    // Cerrar menú móvil al hacer clic en la superposición
     overlay.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
       overlay.classList.remove('show');
