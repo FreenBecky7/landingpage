@@ -27,7 +27,7 @@
       background: rgba(225, 229, 234, 0.9);
       backdrop-filter: blur(16px);
       box-shadow: -4px 0 30px rgba(0,0,0,0.2);
-      transition: right 0.4s ease;
+      transition: right 0.4s ease, opacity 0.4s ease;
       z-index: 50;
       display: flex;
       flex-direction: column;
@@ -142,9 +142,9 @@
       <div class="flex justify-between items-center h-20">
 
         <!-- LOGO -->
-        <a href="/" class="flex items-center gap-2 group">
+        <a href="./img" class="flex items-center gap-2 group">
           <img 
-            src="/img/21.png" 
+            src="./img/21.png" 
             alt="Logo Kimstrong" 
             class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-105" 
           />
@@ -196,47 +196,52 @@
   <!-- Espaciador -->
   <div class="h-20"></div>
 
+ 
+
+  <!-- JS -->
   <script>
-    const toggleBtn = document.getElementById('toggleDark');
-    const html = document.documentElement;
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const overlay = document.getElementById('overlay');
-    const iconMoon = document.getElementById('icon-moon');
-    const iconSun = document.getElementById('icon-sun');
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('toggleDark');
+      const html = document.documentElement;
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const overlay = document.getElementById('overlay');
+      const iconMoon = document.getElementById('icon-moon');
+      const iconSun = document.getElementById('icon-sun');
 
-    // Cargar tema
-    if (localStorage.getItem('theme') === 'dark') {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
-    updateIcons();
-
-    toggleBtn.addEventListener('click', () => {
-      html.classList.toggle('dark');
-      const isDark = html.classList.contains('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      // Cargar tema guardado
+      if (localStorage.getItem('theme') === 'dark') {
+        html.classList.add('dark');
+      } else {
+        html.classList.remove('dark');
+      }
       updateIcons();
-    });
 
-    function updateIcons() {
-      const isDark = html.classList.contains('dark');
-      iconMoon.classList.toggle('hidden', isDark);
-      iconSun.classList.toggle('hidden', !isDark);
-    }
+      toggleBtn.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        const isDark = html.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateIcons();
+      });
 
-    // Menú móvil
-    menuToggle.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      overlay.classList.toggle('show', isOpen);
-      menuToggle.classList.toggle('open', isOpen);
-    });
+      function updateIcons() {
+        const isDark = html.classList.contains('dark');
+        iconMoon.classList.toggle('hidden', isDark);
+        iconSun.classList.toggle('hidden', !isDark);
+      }
 
-    overlay.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      overlay.classList.remove('show');
-      menuToggle.classList.remove('open');
+      // Menú móvil
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        overlay.classList.toggle('show', isOpen);
+        menuToggle.classList.toggle('open', isOpen);
+      });
+
+      overlay.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        overlay.classList.remove('show');
+        menuToggle.classList.remove('open');
+      });
     });
   </script>
 
