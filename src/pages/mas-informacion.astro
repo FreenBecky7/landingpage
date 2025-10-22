@@ -43,48 +43,130 @@
 </head>
 <body class="bg-white text-gray-900 dark:bg-[#0B0F1A] dark:text-white">
 
-  <!-- NAVBAR -->
-  <header class="backdrop-blur bg-[#E1E5EA]/80 dark:bg-[#121E2B]/80 shadow-md fixed w-full z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center h-20 px-4 sm:px-6 lg:px-8">
-      <!-- LOGO -->
-        <a href="/" class="flex items-center gap-1 sm:gap-2 group">
-          <img 
-            src="/img/21.png" 
-            alt="Logo Kimstrong" 
-            class="w-24 h-28 sm:w-30 sm:h-30 object-contain transition-transform duration-300 group-hover:scale-105" 
-          />
-          <span 
-            class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-[#a515a5] to-[#62e0ff] bg-clip-text text-transparent tracking-wide select-none"
-          >
-            Kim<strong>strong</strong>
-          </span>
-        </a>
-      
-      <button id="menu-toggle" class="md:hidden text-2xl" aria-label="Menú móvil">☰</button>
-      
-      <nav id="main-nav" class="hidden md:flex gap-8 text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1]">
-        <a href="/" class="hover:text-[#4A6FA5] transition">Inicio</a>
-        <a href="#proyectos" class="hover:text-[#4A6FA5] transition">Proyectos</a>
-        <a href="#videojuegos" class="hover:text-[#4A6FA5] transition">Videojuegos</a>
-         <a href="#proceso" class="hover:text-[#4A6FA5] transition">Procesos</a>
-        <a href="#contacto" class="hover:text-[#4A6FA5] transition">Contacto</a>
-      </nav>
-      
-      <button id="toggleDark" class="ml-4 text-xl p-2 rounded-full hover:bg-[#E1E5EA] dark:hover:bg-[#1A3B71] transition" aria-label="Cambiar tema">
+<!-- NAVBAR PROFESIONAL -->
+<header class="backdrop-blur bg-[#E1E5EA]/80 dark:bg-[#121E2B]/80 shadow-md fixed w-full z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center h-20 px-4 sm:px-6 lg:px-8">
+
+    <!-- LOGO -->
+    <a href="/" class="flex items-center gap-2 group">
+      <img 
+        src="/img/21.png" 
+        alt="Logo Kimstrong" 
+        class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-105" 
+      />
+      <span class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#a515a5] to-[#62e0ff] bg-clip-text text-transparent select-none">
+        Kim<strong>strong</strong>
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex gap-10 items-center text-lg font-medium text-[#2C3E50] dark:text-[#ECEFF1]">
+      <a href="/" class="link-hover">Inicio</a>
+      <a href="/mas-informacion" class="link-hover">Servicios</a>
+      <a href="#projects" class="link-hover">Proyectos</a>
+      <a href="#paquetes" class="link-hover">Paquetes</a>
+      <a href="#redessociales" class="link-hover">Contacto</a>
+    </nav>
+
+    <!-- Botones -->
+    <div class="flex items-center gap-4">
+      <!-- Modo oscuro -->
+      <button id="toggleDark" class="text-xl p-2 rounded-full hover:bg-[#E1E5EA] dark:hover:bg-[#1A3B71] transition" aria-label="Cambiar tema">
         <span id="icon-moon">🌙</span>
         <span id="icon-sun" class="hidden">☀️</span>
       </button>
-    </div>
 
-    <!-- Menú móvil -->
-    <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 bg-[#E1E5EA]/90 dark:bg-[#121E2B]/90 p-4 rounded-b-lg text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1]">
-      <a href="/" class="hover:text-[#4A6FA5] transition">Inicio</a>
-      <a href="#proyectos" class="hover:text-[#4A6FA5] transition">Proyectos</a>
-      <a href="#videojuegos" class="hover:text-[#4A6FA5] transition">Videojuegos</a>
-         <a href="#proceso" class="hover:text-[#4A6FA5] transition">Procesos</a>
-      <a href="#contacto" class="hover:text-[#4A6FA5] transition">Contacto</a>
+      <!-- Botón menú móvil -->
+      <button id="menu-toggle" class="md:hidden text-2xl" aria-label="Menú móvil">
+        <span class="block w-6 h-0.5 bg-current mb-1"></span>
+        <span class="block w-6 h-0.5 bg-current mb-1"></span>
+        <span class="block w-6 h-0.5 bg-current"></span>
+      </button>
     </div>
-  </header>
+  </div>
+
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="md:hidden fixed top-0 right-[-100%] h-full w-3/4 bg-[#E1E5EA]/90 dark:bg-[#121E2B]/90 backdrop-blur flex flex-col justify-center items-center gap-8 text-lg font-semibold text-[#2C3E50] dark:text-[#ECEFF1] transition-all duration-400 rounded-l-2xl shadow-xl">
+    <a href="/" class="hover:text-[#4A6FA5] transition">Inicio</a>
+    <a href="#proyectos" class="hover:text-[#4A6FA5] transition">Proyectos</a>
+    <a href="#videojuegos" class="hover:text-[#4A6FA5] transition">Videojuegos</a>
+    <a href="#proceso" class="hover:text-[#4A6FA5] transition">Procesos</a>
+    <a href="#contacto" class="hover:text-[#4A6FA5] transition">Contacto</a>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black/40 opacity-0 hidden z-40 transition-opacity"></div>
+</header>
+
+<!-- SCRIPT -->
+<script>
+  const html = document.documentElement;
+  const toggleBtn = document.getElementById("toggleDark");
+  const iconMoon = document.getElementById("icon-moon");
+  const iconSun = document.getElementById("icon-sun");
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("overlay");
+
+  // Tema guardado
+  if(localStorage.getItem("theme") === "dark") html.classList.add("dark");
+  updateIcons();
+
+  toggleBtn.addEventListener("click", () => {
+    html.classList.toggle("dark");
+    localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
+    updateIcons();
+  });
+
+  function updateIcons() {
+    const isDark = html.classList.contains("dark");
+    iconMoon.classList.toggle("hidden", isDark);
+    iconSun.classList.toggle("hidden", !isDark);
+  }
+
+  // Menú móvil
+  menuToggle.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("open");
+    if(isOpen){
+      mobileMenu.style.right = "0";
+      overlay.classList.add("block");
+      setTimeout(() => overlay.classList.add("opacity-100"), 10);
+    } else {
+      mobileMenu.style.right = "-100%";
+      overlay.classList.remove("opacity-100");
+      setTimeout(() => overlay.classList.remove("block"), 300);
+    }
+  });
+
+  overlay.addEventListener("click", () => {
+    mobileMenu.classList.remove("open");
+    mobileMenu.style.right = "-100%";
+    overlay.classList.remove("opacity-100");
+    setTimeout(() => overlay.classList.remove("block"), 300);
+  });
+</script>
+
+<style>
+  /* Hover animado para enlaces */
+  .link-hover {
+    position: relative;
+    transition: color 0.3s;
+  }
+  .link-hover::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #4A6FA5;
+    transition: width 0.3s;
+  }
+  .link-hover:hover::after {
+    width: 100%;
+  }
+</style>
+
 
  <!-- Separador del navbar -->
 <div class="h-20"></div>
