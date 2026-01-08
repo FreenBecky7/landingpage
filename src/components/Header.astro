@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="es" class="light">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
+
+  <!-- Evita parpadeo y hace funcional el dark mode en Netlify -->
+  <script>
+    (function () {
+      const theme = localStorage.getItem('theme');
+      if (
+        theme === 'dark' ||
+        (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kimstrong</title>
+
+  <!-- Tailwind CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet" />
+
   <style>
     html, body {
       transition: background-color 0.4s, color 0.4s;
@@ -17,7 +34,7 @@
       transition: background-color 0.3s ease;
     }
 
-    /* Menú móvil premium */
+    /* Menú móvil */
     .mobile-menu {
       position: fixed;
       top: 0;
@@ -51,10 +68,7 @@
     .overlay {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background-color: rgba(0,0,0,0.5);
       z-index: 40;
       opacity: 0;
@@ -66,13 +80,12 @@
       opacity: 1;
     }
 
-    /* Botón hamburguesa animado */
+    /* Botón hamburguesa */
     .menu-btn {
       position: relative;
       width: 26px;
       height: 22px;
       cursor: pointer;
-      transition: all 0.3s ease;
     }
 
     .menu-btn span {
@@ -105,7 +118,6 @@
       position: relative;
       font-size: 1.25rem;
       font-weight: 600;
-      transition: color 0.3s;
     }
 
     .link-hover::after {
@@ -123,7 +135,6 @@
       width: 100%;
     }
 
-    /* Icono modo oscuro */
     #toggleDark {
       transition: transform 0.3s ease;
     }
@@ -137,24 +148,21 @@
 <body class="bg-[#F4F6F8] text-[#1A1A1A] dark:bg-[#0B0F1A] dark:text-[#ECEFF1]">
 
   <!-- NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-50 shadow-sm bg-[#E1E5EA]/80 dark:bg-[#121E2B]/80 backdrop-blur">
+  <header class="fixed top-0 left-0 right-0 z-50 shadow-sm bg-[#E1E5EA]/80 dark:bg-[#121E2B]/80">
     <div class="max-w-7xl mx-auto px-6 sm:px-8">
       <div class="flex justify-between items-center h-20">
 
         <!-- LOGO -->
-        <a href="./img" class="flex items-center gap-2 group">
-          <img 
-            src="./img/21.png" 
-            alt="Logo Kimstrong" 
-            class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-105" 
-          />
-          <span class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#a515a5] to-[#62e0ff] bg-clip-text text-transparent select-none">
+        <a href="/" class="flex items-center gap-2 group">
+          <img src="./img/21.png" alt="Logo Kimstrong"
+            class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-105" />
+          <span class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#a515a5] to-[#62e0ff] bg-clip-text text-transparent">
             Kim<strong>strong</strong>
           </span>
         </a>
 
-        <!-- Desktop nav -->
-        <nav class="hidden md:flex gap-10 items-center text-lg font-medium text-[#2C3E50] dark:text-[#ECEFF1]">
+        <!-- Desktop -->
+        <nav class="hidden md:flex gap-10 items-center text-lg font-medium">
           <a href="/" class="link-hover">Inicio</a>
           <a href="/mas-informacion" class="link-hover">Servicios</a>
           <a href="#projects" class="link-hover">Proyectos</a>
@@ -164,15 +172,13 @@
 
         <!-- Botones -->
         <div class="flex items-center gap-5">
-          <button id="toggleDark" class="text-xl p-2 rounded-full hover:bg-[#E1E5EA]/70 dark:hover:bg-[#1A3B71]/50 transition" aria-label="Cambiar tema">
+          <button id="toggleDark" class="text-xl p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/10">
             <span id="icon-moon">🌙</span>
             <span id="icon-sun" class="hidden">☀️</span>
           </button>
 
-          <div id="menu-toggle" class="menu-btn md:hidden text-[#2C3E50] dark:text-[#ECEFF1]">
-            <span></span>
-            <span></span>
-            <span></span>
+          <div id="menu-toggle" class="menu-btn md:hidden">
+            <span></span><span></span><span></span>
           </div>
         </div>
       </div>
@@ -180,8 +186,8 @@
   </header>
 
   <!-- Menú móvil -->
-  <div id="mobile-menu" class="mobile-menu md:hidden text-[#2C3E50] dark:text-[#ECEFF1]">
-    <nav class="flex flex-col items-center w-full text-center gap-5">
+  <div id="mobile-menu" class="mobile-menu md:hidden">
+    <nav class="flex flex-col items-center gap-6">
       <a href="/" class="link-hover">Inicio</a>
       <a href="/mas-informacion" class="link-hover">Servicios</a>
       <a href="#projects" class="link-hover">Proyectos</a>
@@ -190,39 +196,20 @@
     </nav>
   </div>
 
-  <!-- Overlay -->
   <div id="overlay" class="overlay"></div>
 
-  <!-- Espaciador -->
   <div class="h-20"></div>
-
- 
 
   <!-- JS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggleBtn = document.getElementById('toggleDark');
       const html = document.documentElement;
+      const iconMoon = document.getElementById('icon-moon');
+      const iconSun = document.getElementById('icon-sun');
       const menuToggle = document.getElementById('menu-toggle');
       const mobileMenu = document.getElementById('mobile-menu');
       const overlay = document.getElementById('overlay');
-      const iconMoon = document.getElementById('icon-moon');
-      const iconSun = document.getElementById('icon-sun');
-
-      // Cargar tema guardado
-      if (localStorage.getItem('theme') === 'dark') {
-        html.classList.add('dark');
-      } else {
-        html.classList.remove('dark');
-      }
-      updateIcons();
-
-      toggleBtn.addEventListener('click', () => {
-        html.classList.toggle('dark');
-        const isDark = html.classList.contains('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        updateIcons();
-      });
 
       function updateIcons() {
         const isDark = html.classList.contains('dark');
@@ -230,11 +217,20 @@
         iconSun.classList.toggle('hidden', !isDark);
       }
 
-      // Menú móvil
+      updateIcons();
+
+      toggleBtn.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        localStorage.setItem('theme',
+          html.classList.contains('dark') ? 'dark' : 'light'
+        );
+        updateIcons();
+      });
+
       menuToggle.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.toggle('open');
-        overlay.classList.toggle('show', isOpen);
-        menuToggle.classList.toggle('open', isOpen);
+        const open = mobileMenu.classList.toggle('open');
+        overlay.classList.toggle('show', open);
+        menuToggle.classList.toggle('open', open);
       });
 
       overlay.addEventListener('click', () => {
