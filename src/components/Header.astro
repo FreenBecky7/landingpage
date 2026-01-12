@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- Evita parpadeo -->
+  <!-- ✅ Detecta AUTOMÁTICAMENTE el modo del sistema (sin botón, sin localStorage) -->
   <script>
     (function () {
-      const theme = localStorage.getItem('theme');
-      if (
-        theme === 'dark' ||
-        (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.classList.add('dark');
       }
     })();
@@ -25,8 +21,12 @@
   <style>
     html, body {
       transition: background-color 0.4s, color 0.4s;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       scroll-behavior: smooth;
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     header {
@@ -34,48 +34,7 @@
       transition: background-color 0.3s ease;
     }
 
-    /* ===== BOTÓN DARK MODE (NUEVO, ESTABLE) ===== */
-    .theme-switch {
-      width: 44px;
-      height: 24px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .theme-switch input {
-      display: none;
-    }
-
-    .theme-slider {
-      position: absolute;
-      inset: 0;
-      background: #cbd5e1;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .theme-slider::before {
-      content: "";
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      left: 3px;
-      top: 3px;
-      background: white;
-      border-radius: 50%;
-      transition: 0.3s;
-    }
-
-    .theme-switch input:checked + .theme-slider {
-      background: #0ea5e9;
-    }
-
-    .theme-switch input:checked + .theme-slider::before {
-      transform: translateX(20px);
-    }
-
-    /* Menú móvil (TU CÓDIGO) */
+    /* Menú móvil */
     .mobile-menu {
       position: fixed;
       top: 0;
@@ -155,8 +114,9 @@
 
     .link-hover {
       position: relative;
-      font-size: 1.25rem;
-      font-weight: 600;
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
     }
 
     .link-hover::after {
@@ -187,7 +147,7 @@
         <a href="/" class="flex items-center gap-2 group">
           <img src="./img/21.png" alt="Logo Kimstrong"
             class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-105" />
-          <span class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#a515a5] to-[#62e0ff] bg-clip-text text-transparent">
+          <span class="text-2xl sm:text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#a515a5] to-[#62e0ff] bg-clip-text text-transparent">
             Kim<strong>strong</strong>
           </span>
         </a>
@@ -201,20 +161,11 @@
           <a href="#redessociales" class="link-hover">Contacto</a>
         </nav>
 
-        <!-- Botones -->
-        <div class="flex items-center gap-5">
-
-          <!-- ✅ BOTÓN DARK MODE CORREGIDO -->
-          <label class="theme-switch" aria-label="Cambiar tema">
-            <input type="checkbox" id="themeToggle">
-            <span class="theme-slider"></span>
-          </label>
-
-          <div id="menu-toggle" class="menu-btn md:hidden">
-            <span></span><span></span><span></span>
-          </div>
-
+        <!-- Menú móvil botón -->
+        <div id="menu-toggle" class="menu-btn md:hidden">
+          <span></span><span></span><span></span>
         </div>
+
       </div>
     </div>
   </header>
@@ -233,25 +184,8 @@
   <div id="overlay" class="overlay"></div>
   <div class="h-20"></div>
 
-  <!-- JS -->
+  <!-- JS MENÚ -->
   <script>
-    /* ===== DARK MODE (NUEVO, ESTABLE EN NETLIFY) ===== */
-    const themeToggle = document.getElementById('themeToggle');
-    const root = document.documentElement;
-
-    themeToggle.checked = root.classList.contains('dark');
-
-    themeToggle.addEventListener('change', () => {
-      if (themeToggle.checked) {
-        root.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        root.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    });
-
-    /* ===== TU JS ORIGINAL ===== */
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const overlay = document.getElementById('overlay');
