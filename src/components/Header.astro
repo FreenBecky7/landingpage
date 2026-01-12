@@ -29,53 +29,53 @@
       scroll-behavior: smooth;
     }
 
-    body {
-      background-color: #F4F6F8;
-      color: #1A1A1A;
-    }
-
-    .dark body {
-      background-color: #0B0F1A;
-      color: #ECEFF1;
-    }
-
     header {
       backdrop-filter: blur(16px);
       transition: background-color 0.3s ease;
-      background-color: rgba(225, 229, 234, 0.8);
     }
 
-    .dark header {
-      background-color: rgba(18, 30, 43, 0.85);
-    }
-
-    /* Links */
-    .link-hover {
+    /* ===== BOTÓN DARK MODE (NUEVO, ESTABLE) ===== */
+    .theme-switch {
+      width: 44px;
+      height: 24px;
       position: relative;
-      font-size: 1.25rem;
-      font-weight: 600;
+      display: inline-block;
     }
 
-    .link-hover::after {
+    .theme-switch input {
+      display: none;
+    }
+
+    .theme-slider {
+      position: absolute;
+      inset: 0;
+      background: #cbd5e1;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .theme-slider::before {
       content: "";
       position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #4A6FA5;
-      transition: width 0.3s;
+      width: 18px;
+      height: 18px;
+      left: 3px;
+      top: 3px;
+      background: white;
+      border-radius: 50%;
+      transition: 0.3s;
     }
 
-    .dark .link-hover::after {
-      background-color: #62e0ff;
+    .theme-switch input:checked + .theme-slider {
+      background: #0ea5e9;
     }
 
-    .link-hover:hover::after {
-      width: 100%;
+    .theme-switch input:checked + .theme-slider::before {
+      transform: translateX(20px);
     }
 
-    /* Menú móvil */
+    /* Menú móvil (TU CÓDIGO) */
     .mobile-menu {
       position: fixed;
       top: 0;
@@ -121,7 +121,6 @@
       opacity: 1;
     }
 
-    /* Botón hamburguesa */
     .menu-btn {
       position: relative;
       width: 26px;
@@ -154,31 +153,33 @@
       top: 9px;
     }
 
-    /* Botón Dark Mode (Netlify safe) */
-    .theme-btn {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      transition: background-color 0.3s;
+    .link-hover {
+      position: relative;
+      font-size: 1.25rem;
+      font-weight: 600;
     }
 
-    .theme-btn:hover {
-      background: rgba(0,0,0,0.1);
+    .link-hover::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #4A6FA5;
+      transition: width 0.3s;
     }
 
-    .dark .theme-btn:hover {
-      background: rgba(255,255,255,0.12);
+    .link-hover:hover::after {
+      width: 100%;
     }
   </style>
 </head>
 
-<body>
+<body class="bg-[#F4F6F8] text-[#1A1A1A] dark:bg-[#0B0F1A] dark:text-[#ECEFF1]">
 
   <!-- NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-50 shadow-sm">
+  <header class="fixed top-0 left-0 right-0 z-50 shadow-sm bg-[#E1E5EA]/80 dark:bg-[#121E2B]/80">
     <div class="max-w-7xl mx-auto px-6 sm:px-8">
       <div class="flex justify-between items-center h-20">
 
@@ -202,20 +203,17 @@
 
         <!-- Botones -->
         <div class="flex items-center gap-5">
-          <!-- BOTÓN DARK MODE CORREGIDO -->
-          <button
-            id="toggleDark"
-            type="button"
-            class="theme-btn text-xl"
-            onclick="toggleTheme()"
-            aria-label="Cambiar tema"
-          >
-            <span id="themeIcon">🌙</span>
-          </button>
+
+          <!-- ✅ BOTÓN DARK MODE CORREGIDO -->
+          <label class="theme-switch" aria-label="Cambiar tema">
+            <input type="checkbox" id="themeToggle">
+            <span class="theme-slider"></span>
+          </label>
 
           <div id="menu-toggle" class="menu-btn md:hidden">
             <span></span><span></span><span></span>
           </div>
+
         </div>
       </div>
     </div>
@@ -233,29 +231,27 @@
   </div>
 
   <div id="overlay" class="overlay"></div>
-
   <div class="h-20"></div>
 
-  <!-- JS GENERAL -->
+  <!-- JS -->
   <script>
-    const html = document.documentElement;
-    const themeIcon = document.getElementById('themeIcon');
+    /* ===== DARK MODE (NUEVO, ESTABLE EN NETLIFY) ===== */
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
 
-    function syncIcon() {
-      themeIcon.textContent = html.classList.contains('dark') ? '☀️' : '🌙';
-    }
+    themeToggle.checked = root.classList.contains('dark');
 
-    function toggleTheme() {
-      html.classList.toggle('dark');
-      localStorage.setItem(
-        'theme',
-        html.classList.contains('dark') ? 'dark' : 'light'
-      );
-      syncIcon();
-    }
+    themeToggle.addEventListener('change', () => {
+      if (themeToggle.checked) {
+        root.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        root.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    });
 
-    syncIcon();
-
+    /* ===== TU JS ORIGINAL ===== */
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const overlay = document.getElementById('overlay');
