@@ -6,9 +6,21 @@
   <!-- ✅ Detecta AUTOMÁTICAMENTE el modo del sistema (sin botón, sin localStorage) -->
   <script>
     (function () {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('dark');
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function applyTheme(e) {
+        if (e.matches) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
       }
+
+      // Aplica al cargar
+      applyTheme(media);
+
+      // Escucha cambios en tiempo real (CLAVE para móviles)
+      media.addEventListener('change', applyTheme);
     })();
   </script>
 
