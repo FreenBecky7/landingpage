@@ -5,22 +5,30 @@
 
   <!-- ✅ Detecta AUTOMÁTICAMENTE el modo del sistema (sin botón, sin localStorage) -->
   <script>
+    /* ✅ DARK MODE 100% FUNCIONAL EN NETLIFY + MÓVILES */
     (function () {
-      const media = window.matchMedia('(prefers-color-scheme: dark)');
+      const root = document.documentElement;
 
-      function applyTheme(e) {
-        if (e.matches) {
-          document.documentElement.classList.add('dark');
+      function applyTheme() {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          root.classList.add('dark');
         } else {
-          document.documentElement.classList.remove('dark');
+          root.classList.remove('dark');
         }
       }
 
-      // Aplica al cargar
-      applyTheme(media);
+      // Aplica SIEMPRE al cargar (Netlify incluido)
+      applyTheme();
 
-      // Escucha cambios en tiempo real (CLAVE para móviles)
-      media.addEventListener('change', applyTheme);
+      // Escucha cambios del sistema (iOS / Android)
+      try {
+        window.matchMedia('(prefers-color-scheme: dark)')
+          .addEventListener('change', applyTheme);
+      } catch (e) {
+        // Fallback Safari viejo
+        window.matchMedia('(prefers-color-scheme: dark)')
+          .addListener(applyTheme);
+      }
     })();
   </script>
 
