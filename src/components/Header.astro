@@ -43,12 +43,16 @@
       width: 100%;
     }
 
-    /* Hamburger */
+    /* Hamburger button */
     .menu-btn {
       width: 26px;
       height: 22px;
       position: relative;
       cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      touch-action: manipulation;
     }
 
     .menu-btn span {
@@ -58,6 +62,7 @@
       background: #1A1A1A;
       border-radius: 2px;
       transition: 0.3s;
+      left: 0;
     }
 
     .menu-btn span:nth-child(1) { top: 0; }
@@ -154,9 +159,11 @@
         </nav>
 
         <!-- Mobile Button -->
-        <div id="menu-toggle" class="menu-btn md:hidden">
-          <span></span><span></span><span></span>
-        </div>
+        <button id="menu-toggle" class="menu-btn md:hidden" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
       </div>
     </div>
@@ -173,6 +180,7 @@
     </nav>
   </div>
 
+  <!-- Overlay -->
   <div id="overlay" class="overlay"></div>
 
   <!-- Spacer -->
@@ -185,9 +193,9 @@
     const overlay = document.getElementById('overlay');
 
     menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      overlay.classList.toggle('show');
-      menuToggle.classList.toggle('open');
+      const isOpen = mobileMenu.classList.toggle('open');
+      overlay.classList.toggle('show', isOpen);
+      menuToggle.classList.toggle('open', isOpen);
     });
 
     overlay.addEventListener('click', () => {
