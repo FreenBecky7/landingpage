@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- Evita parpadeo y hace funcional el dark mode en Netlify -->
+  <!-- Evita parpadeo y activa dark mode -->
   <script>
     (function () {
       const theme = localStorage.getItem('theme');
@@ -32,6 +32,36 @@
     header {
       backdrop-filter: blur(16px);
       transition: background-color 0.3s ease;
+    }
+
+    /* ===== DARK MODE REAL ===== */
+    .dark body {
+      background-color: #0B0F1A;
+      color: #ECEFF1;
+    }
+
+    .dark header {
+      background-color: rgba(18, 30, 43, 0.85);
+    }
+
+    .dark .link-hover {
+      color: #ECEFF1;
+    }
+
+    .dark .link-hover::after {
+      background-color: #62e0ff;
+    }
+
+    .dark .menu-btn span {
+      background: #ECEFF1;
+    }
+
+    .dark #toggleDark {
+      color: #ECEFF1;
+    }
+
+    .dark .overlay {
+      background-color: rgba(0,0,0,0.7);
     }
 
     /* Menú móvil */
@@ -145,10 +175,10 @@
   </style>
 </head>
 
-<body class="bg-[#F4F6F8] text-[#1A1A1A] dark:bg-[#0B0F1A] dark:text-[#ECEFF1]">
+<body class="bg-[#F4F6F8] text-[#1A1A1A]">
 
   <!-- NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-50 shadow-sm bg-[#E1E5EA]/80 dark:bg-[#121E2B]/80">
+  <header class="fixed top-0 left-0 right-0 z-50 shadow-sm bg-[#E1E5EA]/80">
     <div class="max-w-7xl mx-auto px-6 sm:px-8">
       <div class="flex justify-between items-center h-20">
 
@@ -172,7 +202,7 @@
 
         <!-- Botones -->
         <div class="flex items-center gap-5">
-          <button id="toggleDark" class="text-xl p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/10">
+          <button id="toggleDark" class="text-xl p-2 rounded-full hover:bg-black/10">
             <span id="icon-moon">🌙</span>
             <span id="icon-sun" class="hidden">☀️</span>
           </button>
@@ -190,7 +220,7 @@
     <nav class="flex flex-col items-center gap-6">
       <a href="/" class="link-hover">Inicio</a>
       <a href="/mas-informacion" class="link-hover">Servicios</a>
-      <a href="#projects" class="link-hover">Proyectos</a>
+      <a href="#projects" class="link-hover">Ver Proyectos</a>
       <a href="#paquetes" class="link-hover">Paquetes</a>
       <a href="#redessociales" class="link-hover">Contacto</a>
     </nav>
@@ -221,7 +251,8 @@
 
       toggleBtn.addEventListener('click', () => {
         html.classList.toggle('dark');
-        localStorage.setItem('theme',
+        localStorage.setItem(
+          'theme',
           html.classList.contains('dark') ? 'dark' : 'light'
         );
         updateIcons();
