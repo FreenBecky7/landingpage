@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- Evita parpadeo y activa dark mode -->
+  <!-- Evita parpadeo -->
   <script>
     (function () {
       const theme = localStorage.getItem('theme');
@@ -29,39 +29,50 @@
       scroll-behavior: smooth;
     }
 
-    header {
-      backdrop-filter: blur(16px);
-      transition: background-color 0.3s ease;
+    body {
+      background-color: #F4F6F8;
+      color: #1A1A1A;
     }
 
-    /* ===== DARK MODE REAL ===== */
     .dark body {
       background-color: #0B0F1A;
       color: #ECEFF1;
+    }
+
+    header {
+      backdrop-filter: blur(16px);
+      transition: background-color 0.3s ease;
+      background-color: rgba(225, 229, 234, 0.8);
     }
 
     .dark header {
       background-color: rgba(18, 30, 43, 0.85);
     }
 
-    .dark .link-hover {
-      color: #ECEFF1;
+    /* Links */
+    .link-hover {
+      position: relative;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .link-hover::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #4A6FA5;
+      transition: width 0.3s;
     }
 
     .dark .link-hover::after {
       background-color: #62e0ff;
     }
 
-    .dark .menu-btn span {
-      background: #ECEFF1;
-    }
-
-    .dark #toggleDark {
-      color: #ECEFF1;
-    }
-
-    .dark .overlay {
-      background-color: rgba(0,0,0,0.7);
+    .link-hover:hover::after {
+      width: 100%;
     }
 
     /* Menú móvil */
@@ -143,42 +154,31 @@
       top: 9px;
     }
 
-    /* Links */
-    .link-hover {
-      position: relative;
-      font-size: 1.25rem;
-      font-weight: 600;
+    /* Botón Dark Mode (Netlify safe) */
+    .theme-btn {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      transition: background-color 0.3s;
     }
 
-    .link-hover::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #4A6FA5;
-      transition: width 0.3s;
+    .theme-btn:hover {
+      background: rgba(0,0,0,0.1);
     }
 
-    .link-hover:hover::after {
-      width: 100%;
-    }
-
-    #toggleDark {
-      transition: transform 0.3s ease;
-    }
-
-    #toggleDark:active {
-      transform: rotate(180deg);
+    .dark .theme-btn:hover {
+      background: rgba(255,255,255,0.12);
     }
   </style>
 </head>
 
-<body class="bg-[#F4F6F8] text-[#1A1A1A]">
+<body>
 
   <!-- NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-50 shadow-sm bg-[#E1E5EA]/80">
+  <header class="fixed top-0 left-0 right-0 z-50 shadow-sm">
     <div class="max-w-7xl mx-auto px-6 sm:px-8">
       <div class="flex justify-between items-center h-20">
 
@@ -202,9 +202,15 @@
 
         <!-- Botones -->
         <div class="flex items-center gap-5">
-          <button id="toggleDark" class="text-xl p-2 rounded-full hover:bg-black/10">
-            <span id="icon-moon">🌙</span>
-            <span id="icon-sun" class="hidden">☀️</span>
+          <!-- BOTÓN DARK MODE CORREGIDO -->
+          <button
+            id="toggleDark"
+            type="button"
+            class="theme-btn text-xl"
+            onclick="toggleTheme()"
+            aria-label="Cambiar tema"
+          >
+            <span id="themeIcon">🌙</span>
           </button>
 
           <div id="menu-toggle" class="menu-btn md:hidden">
@@ -230,45 +236,40 @@
 
   <div class="h-20"></div>
 
-  <!-- JS -->
+  <!-- JS GENERAL -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggleBtn = document.getElementById('toggleDark');
-      const html = document.documentElement;
-      const iconMoon = document.getElementById('icon-moon');
-      const iconSun = document.getElementById('icon-sun');
-      const menuToggle = document.getElementById('menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const overlay = document.getElementById('overlay');
+    const html = document.documentElement;
+    const themeIcon = document.getElementById('themeIcon');
 
-      function updateIcons() {
-        const isDark = html.classList.contains('dark');
-        iconMoon.classList.toggle('hidden', isDark);
-        iconSun.classList.toggle('hidden', !isDark);
-      }
+    function syncIcon() {
+      themeIcon.textContent = html.classList.contains('dark') ? '☀️' : '🌙';
+    }
 
-      updateIcons();
+    function toggleTheme() {
+      html.classList.toggle('dark');
+      localStorage.setItem(
+        'theme',
+        html.classList.contains('dark') ? 'dark' : 'light'
+      );
+      syncIcon();
+    }
 
-      toggleBtn.addEventListener('click', () => {
-        html.classList.toggle('dark');
-        localStorage.setItem(
-          'theme',
-          html.classList.contains('dark') ? 'dark' : 'light'
-        );
-        updateIcons();
-      });
+    syncIcon();
 
-      menuToggle.addEventListener('click', () => {
-        const open = mobileMenu.classList.toggle('open');
-        overlay.classList.toggle('show', open);
-        menuToggle.classList.toggle('open', open);
-      });
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('overlay');
 
-      overlay.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        overlay.classList.remove('show');
-        menuToggle.classList.remove('open');
-      });
+    menuToggle.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      overlay.classList.toggle('show', open);
+      menuToggle.classList.toggle('open', open);
+    });
+
+    overlay.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      overlay.classList.remove('show');
+      menuToggle.classList.remove('open');
     });
   </script>
 
