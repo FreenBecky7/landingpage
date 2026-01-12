@@ -8,7 +8,7 @@
     (function () {
       const theme = localStorage.getItem('theme');
       if (
-        theme === 'dark' ||
+        theme === 'light' ||
         (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
       ) {
         document.documentElement.classList.add('dark');
@@ -186,15 +186,36 @@
   </header>
 
   <!-- Menú móvil -->
-  <div id="mobile-menu" class="mobile-menu md:hidden">
-    <nav class="flex flex-col items-center gap-6">
-      <a href="/" class="link-hover">Iicio</a>
-      <a href="/mas-informacion" class="link-hover">Servicios</a>
-      <a href="#projects" class="link-hover">Ver Proyectos</a>
-      <a href="#paquetes" class="link-hover">Paquetes</a>
-      <a href="#redessociales" class="link-hover">Contacto</a>
-    </nav>
-  </div>
+<div id="mobile-menu" class="mobile-menu md:hidden">
+  <nav class="w-full px-8 flex flex-col gap-4 text-center">
+
+    <a href="/"
+       class="mobile-link">
+      Inicio
+    </a>
+
+    <a href="/mas-informacion"
+       class="mobile-link">
+      Servicios
+    </a>
+
+    <a href="#projects"
+       class="mobile-link">
+      Proyectos
+    </a>
+
+    <a href="#paquetes"
+       class="mobile-link">
+      Paquetes
+    </a>
+
+    <a href="#redessociales"
+       class="mobile-link">
+      Contacto
+    </a>
+
+  </nav>
+</div>
 
   <div id="overlay" class="overlay"></div>
 
