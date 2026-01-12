@@ -2,38 +2,15 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-
-  <!-- ✅ Detecta AUTOMÁTICAMENTE el modo del sistema (sin botón, sin localStorage) -->
-  <script>
-    /* ✅ DARK MODE 100% FUNCIONAL EN NETLIFY + MÓVILES */
-    (function () {
-      const root = document.documentElement;
-
-      function applyTheme() {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          root.classList.add('dark');
-        } else {
-          root.classList.remove('dark');
-        }
-      }
-
-      // Aplica SIEMPRE al cargar (Netlify incluido)
-      applyTheme();
-
-      // Escucha cambios del sistema (iOS / Android)
-      try {
-        window.matchMedia('(prefers-color-scheme: dark)')
-          .addEventListener('change', applyTheme);
-      } catch (e) {
-        // Fallback Safari viejo
-        window.matchMedia('(prefers-color-scheme: dark)')
-          .addListener(applyTheme);
-      }
-    })();
-  </script>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kimstrong</title>
+
+  <!-- Dark mode AUTOMÁTICO (CSS, 100% compatible con Netlify y móviles) -->
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+  </style>
 
   <!-- Tailwind CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet" />
@@ -41,43 +18,35 @@
   <style>
     html, body {
       transition: background-color 0.4s, color 0.4s;
-      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Poppins', sans-serif;
       scroll-behavior: smooth;
-      line-height: 1.6;
-      letter-spacing: 0.01em;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     header {
       backdrop-filter: blur(16px);
-      transition: background-color 0.3s ease;
     }
 
-    /* Menú móvil */
+    /* ===== MENÚ MÓVIL ===== */
     .mobile-menu {
       position: fixed;
       top: 0;
       right: -100%;
       width: 80%;
       height: 100vh;
-      background: rgba(225, 229, 234, 0.9);
+      background: rgba(225, 229, 234, 0.95);
       backdrop-filter: blur(16px);
-      box-shadow: -4px 0 30px rgba(0,0,0,0.2);
       transition: right 0.4s ease, opacity 0.4s ease;
       z-index: 50;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 1.5rem;
-      border-top-left-radius: 24px;
-      border-bottom-left-radius: 24px;
       opacity: 0;
     }
 
-    .dark .mobile-menu {
-      background: rgba(18, 30, 43, 0.96);
+    @media (prefers-color-scheme: dark) {
+      .mobile-menu {
+        background: rgba(18, 30, 43, 0.96);
+      }
     }
 
     .mobile-menu.open {
@@ -91,137 +60,119 @@
       inset: 0;
       background-color: rgba(0,0,0,0.5);
       z-index: 40;
-      opacity: 0;
-      transition: opacity 0.3s ease;
     }
 
     .overlay.show {
       display: block;
-      opacity: 1;
     }
 
+    /* ===== BOTÓN HAMBURGUESA ===== */
     .menu-btn {
-      position: relative;
       width: 26px;
       height: 22px;
+      position: relative;
       cursor: pointer;
     }
 
     .menu-btn span {
       position: absolute;
-      height: 3px;
       width: 100%;
+      height: 3px;
       background: currentColor;
       border-radius: 2px;
-      transition: all 0.3s ease;
+      transition: 0.3s;
     }
 
-    .menu-btn span:nth-child(1) { top: 0; }
-    .menu-btn span:nth-child(2) { top: 9px; }
-    .menu-btn span:nth-child(3) { top: 18px; }
+    .menu-btn span:nth-child(1){top:0}
+    .menu-btn span:nth-child(2){top:9px}
+    .menu-btn span:nth-child(3){top:18px}
 
-    .menu-btn.open span:nth-child(1) {
-      transform: rotate(45deg);
-      top: 9px;
-    }
-    .menu-btn.open span:nth-child(2) {
-      opacity: 0;
-    }
-    .menu-btn.open span:nth-child(3) {
-      transform: rotate(-45deg);
-      top: 9px;
-    }
+    .menu-btn.open span:nth-child(1){transform:rotate(45deg);top:9px}
+    .menu-btn.open span:nth-child(2){opacity:0}
+    .menu-btn.open span:nth-child(3){transform:rotate(-45deg);top:9px}
 
     .link-hover {
+      font-size: 1.25rem;
+      font-weight: 600;
       position: relative;
-      font-size: 1.05rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
     }
 
     .link-hover::after {
       content: "";
       position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -4px;
       left: 0;
-      background-color: #4A6FA5;
-      transition: width 0.3s;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: #4A6FA5;
+      transition: width .3s;
     }
 
-    .link-hover:hover::after {
-      width: 100%;
-    }
+    .link-hover:hover::after { width: 100%; }
   </style>
 </head>
 
 <body class="bg-[#F4F6F8] text-[#1A1A1A] dark:bg-[#0B0F1A] dark:text-[#ECEFF1]">
 
-  <!-- NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-50 shadow-sm bg-[#E1E5EA]/80 dark:bg-[#121E2B]/80">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8">
-      <div class="flex justify-between items-center h-20">
+<header class="fixed top-0 inset-x-0 z-50 bg-[#E1E5EA]/80 dark:bg-[#121E2B]/80">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-center h-20">
 
-        <!-- LOGO -->
-        <a href="/" class="flex items-center gap-2 group">
-          <img src="./img/21.png" alt="Logo Kimstrong"
-            class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-105" />
-          <span class="text-2xl sm:text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#a515a5] to-[#62e0ff] bg-clip-text text-transparent">
-            Kim<strong>strong</strong>
-          </span>
-        </a>
+      <!-- LOGO -->
+      <a href="/" class="flex items-center gap-2">
+        <img src="./img/21.png" class="w-14 h-14" />
+        <span class="text-2xl font-bold bg-gradient-to-r from-[#a515a5] to-[#62e0ff] bg-clip-text text-transparent">
+          Kim<strong>strong</strong>
+        </span>
+      </a>
 
-        <!-- Desktop -->
-        <nav class="hidden md:flex gap-10 items-center text-lg font-medium">
-          <a href="/" class="link-hover">Inicio</a>
-          <a href="/mas-informacion" class="link-hover">Servicios</a>
-          <a href="#projects" class="link-hover">Proyectos</a>
-          <a href="#paquetes" class="link-hover">Paquetes</a>
-          <a href="#redessociales" class="link-hover">Contacto</a>
-        </nav>
+      <!-- DESKTOP -->
+      <nav class="hidden md:flex gap-10 text-lg font-medium">
+        <a href="/" class="link-hover">Inicio</a>
+        <a href="/mas-informacion" class="link-hover">Servicios</a>
+        <a href="#projects" class="link-hover">Proyectos</a>
+        <a href="#paquetes" class="link-hover">Paquetes</a>
+        <a href="#redessociales" class="link-hover">Contacto</a>
+      </nav>
 
-        <!-- Menú móvil botón -->
-        <div id="menu-toggle" class="menu-btn md:hidden">
-          <span></span><span></span><span></span>
-        </div>
-
+      <!-- BOTÓN MÓVIL -->
+      <div id="menu-toggle" class="menu-btn md:hidden">
+        <span></span><span></span><span></span>
       </div>
     </div>
-  </header>
-
-  <!-- Menú móvil -->
-  <div id="mobile-menu" class="mobile-menu md:hidden">
-    <nav class="flex flex-col items-center gap-6">
-      <a href="/" class="link-hover">Inicio</a>
-      <a href="/mas-informacion" class="link-hover">Servicios</a>
-      <a href="#projects" class="link-hover">Ver Proyectos</a>
-      <a href="#paquetes" class="link-hover">Paquetes</a>
-      <a href="#redessociales" class="link-hover">Contacto</a>
-    </nav>
   </div>
+</header>
 
-  <div id="overlay" class="overlay"></div>
-  <div class="h-20"></div>
+<!-- MENÚ MÓVIL -->
+<div id="mobile-menu" class="mobile-menu md:hidden">
+  <nav class="flex flex-col gap-6 text-center">
+    <a href="/" class="link-hover">Inicio</a>
+    <a href="/mas-informacion" class="link-hover">Servicios</a>
+    <a href="#projects" class="link-hover">Proyectos</a>
+    <a href="#paquetes" class="link-hover">Paquetes</a>
+    <a href="#redessociales" class="link-hover">Contacto</a>
+  </nav>
+</div>
+<div id="overlay" class="overlay"></div>
+<div class="h-20"></div>
 
-  <!-- JS MENÚ -->
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const overlay = document.getElementById('overlay');
+<script>
+  const btn = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('overlay');
 
-    menuToggle.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      overlay.classList.toggle('show', open);
-      menuToggle.classList.toggle('open', open);
-    });
+  btn.onclick = () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+    overlay.classList.toggle('show');
+  };
 
-    overlay.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      overlay.classList.remove('show');
-      menuToggle.classList.remove('open');
-    });
-  </script>
+  overlay.onclick = () => {
+    btn.classList.remove('open');
+    menu.classList.remove('open');
+    overlay.classList.remove('show');
+  };
+</script>
 
 </body>
 </html>
