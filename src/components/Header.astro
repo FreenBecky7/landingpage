@@ -2,15 +2,22 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+
+  <!-- Evita parpadeo y hace funcional el dark mode en Netlify -->
+  <script>
+    (function () {
+      const theme = localStorage.getItem('theme');
+      if (
+        theme === 'dark' ||
+        (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kimstrong</title>
-
-  <!-- Dark mode AUTOMÁTICO (CSS, 100% compatible con Netlify y móviles) -->
-  <style>
-    :root {
-      color-scheme: light dark;
-    }
-  </style>
 
   <!-- Tailwind CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet" />
@@ -24,29 +31,33 @@
 
     header {
       backdrop-filter: blur(16px);
+      transition: background-color 0.3s ease;
     }
 
-    /* ===== MENÚ MÓVIL ===== */
+    /* Menú móvil */
     .mobile-menu {
       position: fixed;
       top: 0;
       right: -100%;
       width: 80%;
       height: 100vh;
-      background: rgba(225, 229, 234, 0.95);
+      background: rgba(225, 229, 234, 0.9);
       backdrop-filter: blur(16px);
+      box-shadow: -4px 0 30px rgba(0,0,0,0.2);
       transition: right 0.4s ease, opacity 0.4s ease;
       z-index: 50;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 1.5rem;
+      border-top-left-radius: 24px;
+      border-bottom-left-radius: 24px;
       opacity: 0;
     }
 
-    @media (prefers-color-scheme: dark) {
-      .mobile-menu {
-        background: rgba(18, 30, 43, 0.96);
-      }
+    .dark .mobile-menu {
+      background: rgba(18, 30, 43, 0.96);
     }
 
     .mobile-menu.open {
@@ -60,119 +71,175 @@
       inset: 0;
       background-color: rgba(0,0,0,0.5);
       z-index: 40;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
     .overlay.show {
       display: block;
+      opacity: 1;
     }
 
-    /* ===== BOTÓN HAMBURGUESA ===== */
+    /* Botón hamburguesa */
     .menu-btn {
+      position: relative;
       width: 26px;
       height: 22px;
-      position: relative;
       cursor: pointer;
     }
 
     .menu-btn span {
       position: absolute;
-      width: 100%;
       height: 3px;
+      width: 100%;
       background: currentColor;
       border-radius: 2px;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
-    .menu-btn span:nth-child(1){top:0}
-    .menu-btn span:nth-child(2){top:9px}
-    .menu-btn span:nth-child(3){top:18px}
+    .menu-btn span:nth-child(1) { top: 0; }
+    .menu-btn span:nth-child(2) { top: 9px; }
+    .menu-btn span:nth-child(3) { top: 18px; }
 
-    .menu-btn.open span:nth-child(1){transform:rotate(45deg);top:9px}
-    .menu-btn.open span:nth-child(2){opacity:0}
-    .menu-btn.open span:nth-child(3){transform:rotate(-45deg);top:9px}
+    .menu-btn.open span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 9px;
+    }
+    .menu-btn.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-btn.open span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 9px;
+    }
 
+    /* Links */
     .link-hover {
+      position: relative;
       font-size: 1.25rem;
       font-weight: 600;
-      position: relative;
     }
 
     .link-hover::after {
       content: "";
       position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
+      width: 0%;
       height: 2px;
-      background: #4A6FA5;
-      transition: width .3s;
+      bottom: -4px;
+      left: 0;
+      background-color: #4A6FA5;
+      transition: width 0.3s;
     }
 
-    .link-hover:hover::after { width: 100%; }
+    .link-hover:hover::after {
+      width: 100%;
+    }
+
+    #toggleDark {
+      transition: transform 0.3s ease;
+    }
+
+    #toggleDark:active {
+      transform: rotate(180deg);
+    }
   </style>
 </head>
 
 <body class="bg-[#F4F6F8] text-[#1A1A1A] dark:bg-[#0B0F1A] dark:text-[#ECEFF1]">
 
-<header class="fixed top-0 inset-x-0 z-50 bg-[#E1E5EA]/80 dark:bg-[#121E2B]/80">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="flex justify-between items-center h-20">
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 shadow-sm bg-[#E1E5EA]/80 dark:bg-[#121E2B]/80">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      <div class="flex justify-between items-center h-20">
 
-      <!-- LOGO -->
-      <a href="/" class="flex items-center gap-2">
-        <img src="./img/21.png" class="w-14 h-14" />
-        <span class="text-2xl font-bold bg-gradient-to-r from-[#a515a5] to-[#62e0ff] bg-clip-text text-transparent">
-          Kim<strong>strong</strong>
-        </span>
-      </a>
+        <!-- LOGO -->
+        <a href="/" class="flex items-center gap-2 group">
+          <img src="./img/21.png" alt="Logo Kimstrong"
+            class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-105" />
+          <span class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#a515a5] to-[#62e0ff] bg-clip-text text-transparent">
+            Kim<strong>strong</strong>
+          </span>
+        </a>
 
-      <!-- DESKTOP -->
-      <nav class="hidden md:flex gap-10 text-lg font-medium">
-        <a href="/" class="link-hover">Inicio</a>
-        <a href="/mas-informacion" class="link-hover">Servicios</a>
-        <a href="#projects" class="link-hover">Proyectos</a>
-        <a href="#paquetes" class="link-hover">Paquetes</a>
-        <a href="#redessociales" class="link-hover">Contacto</a>
-      </nav>
+        <!-- Desktop -->
+        <nav class="hidden md:flex gap-10 items-center text-lg font-medium">
+          <a href="/" class="link-hover">Inicio</a>
+          <a href="/mas-informacion" class="link-hover">Servicios</a>
+          <a href="#projects" class="link-hover">Proyectos</a>
+          <a href="#paquetes" class="link-hover">Paquetes</a>
+          <a href="#redessociales" class="link-hover">Contacto</a>
+        </nav>
 
-      <!-- BOTÓN MÓVIL -->
-      <div id="menu-toggle" class="menu-btn md:hidden">
-        <span></span><span></span><span></span>
+        <!-- Botones -->
+        <div class="flex items-center gap-5">
+          <button id="toggleDark" class="text-xl p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/10">
+            <span id="icon-moon">🌙</span>
+            <span id="icon-sun" class="hidden">☀️</span>
+          </button>
+
+          <div id="menu-toggle" class="menu-btn md:hidden">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
       </div>
     </div>
+  </header>
+
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="mobile-menu md:hidden">
+    <nav class="flex flex-col items-center gap-6">
+      <a href="/" class="link-hover">Iicio</a>
+      <a href="/mas-informacion" class="link-hover">Servicios</a>
+      <a href="#projects" class="link-hover">Ver Proyectos</a>
+      <a href="#paquetes" class="link-hover">Paquetes</a>
+      <a href="#redessociales" class="link-hover">Contacto</a>
+    </nav>
   </div>
-</header>
 
-<!-- MENÚ MÓVIL -->
-<div id="mobile-menu" class="mobile-menu md:hidden">
-  <nav class="flex flex-col gap-6 text-center">
-    <a href="/" class="link-hover">Inicio</a>
-    <a href="/mas-informacion" class="link-hover">Servicios</a>
-    <a href="#projects" class="link-hover">Proyectos</a>
-    <a href="#paquetes" class="link-hover">Paquetes</a>
-    <a href="#redessociales" class="link-hover">Contacto</a>
-  </nav>
-</div>
-<div id="overlay" class="overlay"></div>
-<div class="h-20"></div>
+  <div id="overlay" class="overlay"></div>
 
-<script>
-  const btn = document.getElementById('menu-toggle');
-  const menu = document.getElementById('mobile-menu');
-  const overlay = document.getElementById('overlay');
+  <div class="h-20"></div>
 
-  btn.onclick = () => {
-    btn.classList.toggle('open');
-    menu.classList.toggle('open');
-    overlay.classList.toggle('show');
-  };
+  <!-- JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('toggleDark');
+      const html = document.documentElement;
+      const iconMoon = document.getElementById('icon-moon');
+      const iconSun = document.getElementById('icon-sun');
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const overlay = document.getElementById('overlay');
 
-  overlay.onclick = () => {
-    btn.classList.remove('open');
-    menu.classList.remove('open');
-    overlay.classList.remove('show');
-  };
-</script>
+      function updateIcons() {
+        const isDark = html.classList.contains('dark');
+        iconMoon.classList.toggle('hidden', isDark);
+        iconSun.classList.toggle('hidden', !isDark);
+      }
+
+      updateIcons();
+
+      toggleBtn.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        localStorage.setItem('theme',
+          html.classList.contains('dark') ? 'dark' : 'light'
+        );
+        updateIcons();
+      });
+
+      menuToggle.addEventListener('click', () => {
+        const open = mobileMenu.classList.toggle('open');
+        overlay.classList.toggle('show', open);
+        menuToggle.classList.toggle('open', open);
+      });
+
+      overlay.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        overlay.classList.remove('show');
+        menuToggle.classList.remove('open');
+      });
+    });
+  </script>
 
 </body>
 </html>
